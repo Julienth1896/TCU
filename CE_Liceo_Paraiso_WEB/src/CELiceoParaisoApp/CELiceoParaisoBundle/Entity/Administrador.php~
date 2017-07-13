@@ -1,0 +1,70 @@
+<?php
+
+namespace CELiceoParaisoApp\CELiceoParaisoBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Administrador
+ *
+ * @ORM\Table(name="administrador", indexes={@ORM\Index(name="tipo_administrador", columns={"tipo_administrador"})})
+ * @ORM\Entity
+ */
+class Administrador
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="codigo", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $codigo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nombre", type="string", length=50, nullable=false)
+     */
+    private $nombre;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="primer_apellido", type="string", length=30, nullable=false)
+     */
+    private $primerApellido;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="segundo_apellido", type="string", length=30, nullable=false)
+     */
+    private $segundoApellido;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="telefono", type="string", length=10, nullable=false)
+     */
+    private $telefono;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="corrreo", type="string", length=40, nullable=false)
+     */
+    private $corrreo;
+
+    /**
+     * @var \TipoAdministrador
+     *
+     * @ORM\ManyToOne(targetEntity="TipoAdministrador")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="tipo_administrador", referencedColumnName="codigo")
+     * })
+     */
+    private $tipoAdministrador;
+
+
+}

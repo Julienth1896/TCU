@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Usuario" table="usuario">
+    <unique-constraints>
+      <unique-constraint name="usuario" columns="usuario"/>
+    </unique-constraints>
+    <id name="administrador" association-key="true"/>
+    <field name="usuario" type="string" column="usuario" length="30" nullable="false"/>
+    <field name="clave" type="string" column="clave" length="30" nullable="false"/>
+    <one-to-one field="administrador" target-entity="Administrador">
+      <join-columns>
+        <join-column name="administrador" referenced-column-name="codigo"/>
+      </join-columns>
+    </one-to-one>
+  </entity>
+</doctrine-mapping>

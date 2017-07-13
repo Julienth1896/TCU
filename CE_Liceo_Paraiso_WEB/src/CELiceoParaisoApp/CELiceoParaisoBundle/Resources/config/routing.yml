@@ -1,0 +1,3 @@
+ce_liceo_paraiso_homepage:
+    path:     /home
+    defaults: { _controller: CELiceoParaisoBundle:Default:index }

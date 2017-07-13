@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Administrador" table="administrador">
+    <indexes>
+      <index name="tipo_administrador" columns="tipo_administrador"/>
+    </indexes>
+    <id name="codigo" type="integer" column="codigo">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="nombre" type="string" column="nombre" length="50" nullable="false"/>
+    <field name="primerApellido" type="string" column="primer_apellido" length="30" nullable="false"/>
+    <field name="segundoApellido" type="string" column="segundo_apellido" length="30" nullable="false"/>
+    <field name="telefono" type="string" column="telefono" length="10" nullable="false"/>
+    <field name="corrreo" type="string" column="corrreo" length="40" nullable="false"/>
+    <many-to-one field="tipoAdministrador" target-entity="TipoAdministrador">
+      <join-columns>
+        <join-column name="tipo_administrador" referenced-column-name="codigo"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

@@ -1,0 +1,88 @@
+<?php
+
+namespace CELiceoParaisoApp\CELiceoParaisoBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Institucion
+ *
+ * @ORM\Table(name="institucion")
+ * @ORM\Entity
+ */
+class Institucion
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="codigo", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $codigo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nombre", type="string", length=60, nullable=false)
+     */
+    private $nombre;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ubicacion", type="string", length=1000, nullable=false)
+     */
+    private $ubicacion;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="historia", type="string", length=6000, nullable=false)
+     */
+    private $historia;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="encargados", type="string", length=600, nullable=false)
+     */
+    private $encargados;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="telefono", type="string", length=20, nullable=false)
+     */
+    private $telefono;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="descripcion", type="string", length=3000, nullable=false)
+     */
+    private $descripcion;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="objetivos", type="string", length=3000, nullable=false)
+     */
+    private $objetivos;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="mision", type="string", length=3000, nullable=false)
+     */
+    private $mision;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="vision", type="string", length=3000, nullable=false)
+     */
+    private $vision;
+
+
+}

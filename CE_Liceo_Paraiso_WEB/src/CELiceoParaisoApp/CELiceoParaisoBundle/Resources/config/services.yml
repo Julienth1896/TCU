@@ -1,0 +1,4 @@
+services:
+#    ce_liceo_paraiso.example:
+#        class: CELiceoParaisoApp\CELiceoParaisoBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

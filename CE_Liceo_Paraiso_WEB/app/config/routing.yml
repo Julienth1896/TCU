@@ -1,0 +1,7 @@
+ce_liceo_paraiso:
+    resource: "@CELiceoParaisoBundle/Resources/config/routing.yml"
+    prefix:   /
+
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
