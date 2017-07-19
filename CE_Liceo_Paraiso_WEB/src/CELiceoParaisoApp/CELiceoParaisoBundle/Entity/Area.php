@@ -55,6 +55,28 @@ class Area
      */
     private $institucion;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="Servicio", inversedBy="codigoArea")
+     * @ORM\JoinTable(name="servicio_area",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="codigo_area", referencedColumnName="codigo")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="codigo_servicio", referencedColumnName="codigo")
+     *   }
+     * )
+     */
+    private $codigoServicio;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->codigoServicio = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
 
     /**
@@ -157,5 +179,38 @@ class Area
     public function getInstitucion()
     {
         return $this->institucion;
+    }
+
+    /**
+     * Add codigoServicio
+     *
+     * @param \CELiceoParaisoApp\CELiceoParaisoBundle\Entity\Servicio $codigoServicio
+     * @return Area
+     */
+    public function addCodigoServicio(\CELiceoParaisoApp\CELiceoParaisoBundle\Entity\Servicio $codigoServicio)
+    {
+        $this->codigoServicio[] = $codigoServicio;
+
+        return $this;
+    }
+
+    /**
+     * Remove codigoServicio
+     *
+     * @param \CELiceoParaisoApp\CELiceoParaisoBundle\Entity\Servicio $codigoServicio
+     */
+    public function removeCodigoServicio(\CELiceoParaisoApp\CELiceoParaisoBundle\Entity\Servicio $codigoServicio)
+    {
+        $this->codigoServicio->removeElement($codigoServicio);
+    }
+
+    /**
+     * Get codigoServicio
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getCodigoServicio()
+    {
+        return $this->codigoServicio;
     }
 }

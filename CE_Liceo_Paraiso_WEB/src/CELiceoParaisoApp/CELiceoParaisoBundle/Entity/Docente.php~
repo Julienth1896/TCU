@@ -1,0 +1,60 @@
+<?php
+
+namespace CELiceoParaisoApp\CELiceoParaisoBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Docente
+ *
+ * @ORM\Table(name="docente")
+ * @ORM\Entity
+ */
+class Docente
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="codigo", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $codigo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nombre", type="string", length=50, nullable=false)
+     */
+    private $nombre;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="apellidos", type="string", length=50, nullable=false)
+     */
+    private $apellidos;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="correo", type="string", length=50, nullable=false)
+     */
+    private $correo;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="Departamento", mappedBy="codigoDocente")
+     */
+    private $codigoDepartamento;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->codigoDepartamento = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+}

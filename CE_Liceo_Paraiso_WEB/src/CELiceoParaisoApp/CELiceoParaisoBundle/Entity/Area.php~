@@ -55,5 +55,27 @@ class Area
      */
     private $institucion;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="Servicio", inversedBy="codigoArea")
+     * @ORM\JoinTable(name="servicio_area",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="codigo_area", referencedColumnName="codigo")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="codigo_servicio", referencedColumnName="codigo")
+     *   }
+     * )
+     */
+    private $codigoServicio;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->codigoServicio = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
 }

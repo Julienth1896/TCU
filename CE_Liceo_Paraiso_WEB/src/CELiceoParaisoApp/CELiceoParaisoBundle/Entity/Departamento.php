@@ -45,6 +45,28 @@ class Departamento
      */
     private $administrador;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="Docente", inversedBy="codigoDepartamento")
+     * @ORM\JoinTable(name="docente_departamento",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="codigo_departamento", referencedColumnName="codigo")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="codigo_docente", referencedColumnName="codigo")
+     *   }
+     * )
+     */
+    private $codigoDocente;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->codigoDocente = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
 
     /**
@@ -124,5 +146,38 @@ class Departamento
     public function getAdministrador()
     {
         return $this->administrador;
+    }
+
+    /**
+     * Add codigoDocente
+     *
+     * @param \CELiceoParaisoApp\CELiceoParaisoBundle\Entity\Docente $codigoDocente
+     * @return Departamento
+     */
+    public function addCodigoDocente(\CELiceoParaisoApp\CELiceoParaisoBundle\Entity\Docente $codigoDocente)
+    {
+        $this->codigoDocente[] = $codigoDocente;
+
+        return $this;
+    }
+
+    /**
+     * Remove codigoDocente
+     *
+     * @param \CELiceoParaisoApp\CELiceoParaisoBundle\Entity\Docente $codigoDocente
+     */
+    public function removeCodigoDocente(\CELiceoParaisoApp\CELiceoParaisoBundle\Entity\Docente $codigoDocente)
+    {
+        $this->codigoDocente->removeElement($codigoDocente);
+    }
+
+    /**
+     * Get codigoDocente
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getCodigoDocente()
+    {
+        return $this->codigoDocente;
     }
 }
