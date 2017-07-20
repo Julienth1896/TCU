@@ -107,7 +107,12 @@ class __TwigTemplate_22e2a030a769418f3d0dc0227d0e9e3a6b32bab5b228d8c6531be8a56cb
                         </li>
                     </ul>
                     <ul class=\"nav navbar-nav navbar-right\">
-                        <li><a href=\"#\"><span class=\"glyphicon glyphicon-log-in\"></span> Login</a></li>
+                        <li><a href=\"";
+        // line 65
+        echo $this->env->getExtension('routing')->getPath("ce_liceo_paraiso_login");
+        echo "\">
+                                <span class=\"glyphicon glyphicon-log-in\"></span> Login</a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -117,21 +122,21 @@ class __TwigTemplate_22e2a030a769418f3d0dc0227d0e9e3a6b32bab5b228d8c6531be8a56cb
             <div class=\"row content\">
                 <div class=\"col-sm-2 sidenav\">
                     ";
-        // line 74
+        // line 76
         $this->displayBlock('submenu', $context, $blocks);
-        // line 75
+        // line 77
         echo "                </div>
                 <div class=\"col-sm-7 text-left\"> 
                     ";
-        // line 77
+        // line 79
         $this->displayBlock('content', $context, $blocks);
-        // line 78
+        // line 80
         echo "                </div>
                 <div class=\"col-sm-3 sidenav\">
                     ";
-        // line 80
+        // line 82
         $this->displayBlock('images', $context, $blocks);
-        // line 81
+        // line 83
         echo "                </div>
             </div>
         </div>
@@ -145,18 +150,18 @@ class __TwigTemplate_22e2a030a769418f3d0dc0227d0e9e3a6b32bab5b228d8c6531be8a56cb
 </html>";
     }
 
-    // line 74
+    // line 76
     public function block_submenu($context, array $blocks = array())
     {
         echo " ";
     }
 
-    // line 77
+    // line 79
     public function block_content($context, array $blocks = array())
     {
     }
 
-    // line 80
+    // line 82
     public function block_images($context, array $blocks = array())
     {
         echo " ";
@@ -174,6 +179,6 @@ class __TwigTemplate_22e2a030a769418f3d0dc0227d0e9e3a6b32bab5b228d8c6531be8a56cb
 
     public function getDebugInfo()
     {
-        return array (  160 => 80,  155 => 77,  149 => 74,  135 => 81,  133 => 80,  129 => 78,  127 => 77,  123 => 75,  121 => 74,  103 => 59,  95 => 54,  87 => 49,  79 => 44,  71 => 39,  47 => 18,  37 => 11,  33 => 10,  22 => 1,);
+        return array (  165 => 82,  160 => 79,  154 => 76,  140 => 83,  138 => 82,  134 => 80,  132 => 79,  128 => 77,  126 => 76,  112 => 65,  103 => 59,  95 => 54,  87 => 49,  79 => 44,  71 => 39,  47 => 18,  37 => 11,  33 => 10,  22 => 1,);
     }
 }

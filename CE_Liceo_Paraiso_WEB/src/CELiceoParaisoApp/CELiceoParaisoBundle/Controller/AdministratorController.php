@@ -1,6 +1,20 @@
 <?php
 
-class AdministratorController {
+namespace CELiceoParaisoApp\CELiceoParaisoBundle\Controller;
+
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+
+class AdministratorController extends Controller{
+    
+    public function loginAction(){
+        session_start();
+        if (isset($_SESSION['usuario'])) {
+            
+        }//existe sesión abierta
+        else{
+            return $this->render('CELiceoParaisoBundle:Administrator:login.html.twig');
+        }//la sesión está cerrada
+    }
     
     public function logoutAction(){
         session_start();

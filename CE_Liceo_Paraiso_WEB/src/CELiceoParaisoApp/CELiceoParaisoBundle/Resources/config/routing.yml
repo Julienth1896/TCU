@@ -41,3 +41,7 @@ ce_liceo_paraiso_diurnal:
 ce_liceo_paraiso_ubication:
     path:     /ubication
     defaults: { _controller: CELiceoParaisoBundle:Default:showUbication }
+    
+ce_liceo_paraiso_login:
+    path:     /singup
+    defaults: { _controller: CELiceoParaisoBundle:Administrator:login }

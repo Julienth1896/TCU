@@ -175,6 +175,11 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array (  '_controller' => 'CELiceoParaisoApp\\CELiceoParaisoBundle\\Controller\\DefaultController::showUbicationAction',  '_route' => 'ce_liceo_paraiso_ubication',);
         }
 
+        // ce_liceo_paraiso_login
+        if ($pathinfo === '/singup') {
+            return array (  '_controller' => 'CELiceoParaisoApp\\CELiceoParaisoBundle\\Controller\\AdministratorController::loginAction',  '_route' => 'ce_liceo_paraiso_login',);
+        }
+
         // homepage
         if ($pathinfo === '/app/example') {
             return array (  '_controller' => 'AppBundle\\Controller\\DefaultController::indexAction',  '_route' => 'homepage',);
