@@ -1,28 +1,17 @@
 {% extends "CELiceoParaisoBundle::visitor_view.html.twig" %}
 {% block submenu %}
-    <p><a href="{{path('ce_liceo_paraiso_homepage')}}">Historia</a></p>
-    <p><a href="{{path('ce_liceo_paraiso_description')}}">Descripción</a></p>
-    <p><a href="{{path('ce_liceo_paraiso_objectives')}}">Objetivos</a></p>
-    <p><a href="{{path('ce_liceo_paraiso_mision')}}">Misión</a></p>
-    <p><a href="{{path('ce_liceo_paraiso_vision')}}">Visión</a></p>
-    <p><a href="{{path('ce_liceo_paraiso_managers')}}">Encargados</a></p>
-    <p><a href="{{path('ce_liceo_paraiso_gallery')}}">Galería</a></p>
+    <p><a href="#">Historia</a></p>
+    <p><a href="#">Objetivos</a></p>
+    <p><a href="#">Misión</a></p>
+    <p><a href="#">Visión</a></p>
+    <p><a href="#">Encargados</a></p>
+    <p><a href="#">Ubicación</a></p>
 {% endblock %}
 
 {% block content %}
-    <h1 id="title">{{title}}</h1>
-    {% if information == 'map'%}
-        <p id="address">{{institution.getUbicacion()}}</p>
-        <div id="map_canvas" style="width: 650px; height: 300px; margin-left: 50px;"></div>
-        <hr>
-        <h2>Área Administrativa</h2>
-        <p>{{institution.getEncargados()}}</p>
-    {% endif %}
-    {% if information == 'general'%}
-        <div>{{institution}}</div>
-    {% endif %}
-{% endblock %}
-
-{% block images %}
-    <h1>IMÁGENES</h1>
+    <h1>Welcome</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <hr>
+    <h3>Test</h3>
+    <p>Lorem ipsum...</p>
 {% endblock %}

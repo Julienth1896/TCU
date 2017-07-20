@@ -45,35 +45,5 @@ class Departamento
      */
     private $administrador;
 
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     *
-     * @ORM\ManyToMany(targetEntity="Area", mappedBy="departamento")
-     */
-    private $area;
-
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     *
-     * @ORM\ManyToMany(targetEntity="Docente", inversedBy="codigoDepartamento")
-     * @ORM\JoinTable(name="docente_departamento",
-     *   joinColumns={
-     *     @ORM\JoinColumn(name="codigo_departamento", referencedColumnName="codigo")
-     *   },
-     *   inverseJoinColumns={
-     *     @ORM\JoinColumn(name="codigo_docente", referencedColumnName="codigo")
-     *   }
-     * )
-     */
-    private $codigoDocente;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->area = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->codigoDocente = new \Doctrine\Common\Collections\ArrayCollection();
-    }
 
 }

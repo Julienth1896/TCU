@@ -8,10 +8,9 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <link href="{{ asset('bundles/ce_liceo_paraiso_app/css/styles.css') }}" rel="stylesheet" type="text/css"/>
-        <script type="text/javascript" src="{{ asset('bundles/ce_liceo_paraiso_app/js/mapjs.js') }}"></script>
-        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjY6bb7os43WpETqE-dSKsGkLF1wTzqYk&callback"></script>
     </head>
-    <body onload="codeAddress();" >
+    <body>
+
         <div class="jumbotron">
             <div class="row">
                 <div class="col-sm-2 text-center">
@@ -41,23 +40,23 @@
                             </a>
                         </li>
                         <li>
-                            <a href="{{path('ce_liceo_paraiso_vocational')}}">
+                            <a href="#">
                                 <span class="glyphicon glyphicon-education"></span> Área Vocacional
                             </a>
                         </li>
                         <li>
-                            <a href="{{path('ce_liceo_paraiso_diurnal')}}">
+                            <a href="#">
                                 <span class="glyphicon glyphicon-education"></span> Área Diurna
                             </a>
                         </li>
                         <li>
-                            <a href="{{path('ce_liceo_paraiso_nocturnal')}}">
+                            <a href="#">
                                 <span class="glyphicon glyphicon-education"></span> Área Nocturna
                             </a>
                         </li>
                         <li>
-                            <a href="{{path('ce_liceo_paraiso_ubication')}}">
-                                <span class="glyphicon glyphicon-map-marker"></span> Ubicación
+                            <a href="#">
+                                <span class="glyphicon glyphicon-picture"></span> Galería
                             </a>
                         </li>
                     </ul>
@@ -73,10 +72,10 @@
                 <div class="col-sm-2 sidenav">
                     {% block submenu %} {% endblock %}
                 </div>
-                <div class="col-sm-7 text-left"> 
+                <div class="col-sm-8 text-left"> 
                     {% block content %}{% endblock %}
                 </div>
-                <div class="col-sm-3 sidenav">
+                <div class="col-sm-2 sidenav">
                     {% block images %} {% endblock %}
                 </div>
             </div>
