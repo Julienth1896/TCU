@@ -55,6 +55,44 @@ class Area
      */
     private $institucion;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="Departamento", inversedBy="area")
+     * @ORM\JoinTable(name="area_departamento",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="area", referencedColumnName="codigo")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="departamento", referencedColumnName="codigo")
+     *   }
+     * )
+     */
+    private $departamento;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="Servicio", inversedBy="codigoArea")
+     * @ORM\JoinTable(name="servicio_area",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="codigo_area", referencedColumnName="codigo")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="codigo_servicio", referencedColumnName="codigo")
+     *   }
+     * )
+     */
+    private $codigoServicio;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->departamento = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->codigoServicio = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
 
     /**
@@ -157,5 +195,71 @@ class Area
     public function getInstitucion()
     {
         return $this->institucion;
+    }
+
+    /**
+     * Add departamento
+     *
+     * @param \CELiceoParaisoApp\CELiceoParaisoBundle\Entity\Departamento $departamento
+     * @return Area
+     */
+    public function addDepartamento(\CELiceoParaisoApp\CELiceoParaisoBundle\Entity\Departamento $departamento)
+    {
+        $this->departamento[] = $departamento;
+
+        return $this;
+    }
+
+    /**
+     * Remove departamento
+     *
+     * @param \CELiceoParaisoApp\CELiceoParaisoBundle\Entity\Departamento $departamento
+     */
+    public function removeDepartamento(\CELiceoParaisoApp\CELiceoParaisoBundle\Entity\Departamento $departamento)
+    {
+        $this->departamento->removeElement($departamento);
+    }
+
+    /**
+     * Get departamento
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getDepartamento()
+    {
+        return $this->departamento;
+    }
+
+    /**
+     * Add codigoServicio
+     *
+     * @param \CELiceoParaisoApp\CELiceoParaisoBundle\Entity\Servicio $codigoServicio
+     * @return Area
+     */
+    public function addCodigoServicio(\CELiceoParaisoApp\CELiceoParaisoBundle\Entity\Servicio $codigoServicio)
+    {
+        $this->codigoServicio[] = $codigoServicio;
+
+        return $this;
+    }
+
+    /**
+     * Remove codigoServicio
+     *
+     * @param \CELiceoParaisoApp\CELiceoParaisoBundle\Entity\Servicio $codigoServicio
+     */
+    public function removeCodigoServicio(\CELiceoParaisoApp\CELiceoParaisoBundle\Entity\Servicio $codigoServicio)
+    {
+        $this->codigoServicio->removeElement($codigoServicio);
+    }
+
+    /**
+     * Get codigoServicio
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getCodigoServicio()
+    {
+        return $this->codigoServicio;
     }
 }

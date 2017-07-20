@@ -7,10 +7,11 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <link href="{{ asset('bundles/ce_liceo_paraiso_app/css/styles.css') }}" rel="stylesheet" type="text/css"/>
+        <link href="{{asset('bundles/ce_liceo_paraiso_app/css/styles.css') }}" rel="stylesheet" type="text/css"/>
+        <script type="text/javascript" src="{{asset('bundles/ce_liceo_paraiso_app/js/mapjs.js') }}"></script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjY6bb7os43WpETqE-dSKsGkLF1wTzqYk&callback"></script>
     </head>
-    <body>
-
+    <body onload="codeAddress();" >
         <div class="jumbotron">
             <div class="row">
                 <div class="col-sm-2 text-center">
@@ -40,28 +41,30 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="{{path('ce_liceo_paraiso_vocational')}}">
                                 <span class="glyphicon glyphicon-education"></span> Área Vocacional
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="{{path('ce_liceo_paraiso_diurnal')}}">
                                 <span class="glyphicon glyphicon-education"></span> Área Diurna
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="{{path('ce_liceo_paraiso_nocturnal')}}">
                                 <span class="glyphicon glyphicon-education"></span> Área Nocturna
                             </a>
                         </li>
                         <li>
-                            <a href="#">
-                                <span class="glyphicon glyphicon-picture"></span> Galería
+                            <a href="{{path('ce_liceo_paraiso_ubication')}}">
+                                <span class="glyphicon glyphicon-map-marker"></span> Ubicación
                             </a>
                         </li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                        <li><a href="{{path('ce_liceo_paraiso_login')}}">
+                                <span class="glyphicon glyphicon-log-in"></span> Login</a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -72,10 +75,10 @@
                 <div class="col-sm-2 sidenav">
                     {% block submenu %} {% endblock %}
                 </div>
-                <div class="col-sm-8 text-left"> 
+                <div class="col-sm-7 text-left"> 
                     {% block content %}{% endblock %}
                 </div>
-                <div class="col-sm-2 sidenav">
+                <div class="col-sm-3 sidenav">
                     {% block images %} {% endblock %}
                 </div>
             </div>
