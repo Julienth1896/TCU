@@ -28,15 +28,15 @@ ce_liceo_paraiso_gallery:
     
 ce_liceo_paraiso_vocational:
     path:     /vocational_area
-    defaults: { _controller: CELiceoParaisoBundle:Default:showVocationalArea }
+    defaults: { _controller: CELiceoParaisoBundle:Area:showVocationalArea }
 
 ce_liceo_paraiso_nocturnal:
     path:     /nocturnal_area
-    defaults: { _controller: CELiceoParaisoBundle:Default:showNocturnalArea }
+    defaults: { _controller: CELiceoParaisoBundle:Area:showNocturnalArea }
 
 ce_liceo_paraiso_diurnal:
     path:     /diurnal_area
-    defaults: { _controller: CELiceoParaisoBundle:Default:showDiurnalArea }
+    defaults: { _controller: CELiceoParaisoBundle:Area:showDiurnalArea }
     
 ce_liceo_paraiso_ubication:
     path:     /ubication

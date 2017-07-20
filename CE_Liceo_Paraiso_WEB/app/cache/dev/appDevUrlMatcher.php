@@ -157,17 +157,17 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         // ce_liceo_paraiso_vocational
         if ($pathinfo === '/vocational_area') {
-            return array (  '_controller' => 'CELiceoParaisoApp\\CELiceoParaisoBundle\\Controller\\DefaultController::showVocationalAreaAction',  '_route' => 'ce_liceo_paraiso_vocational',);
+            return array (  '_controller' => 'CELiceoParaisoApp\\CELiceoParaisoBundle\\Controller\\AreaController::showVocationalAreaAction',  '_route' => 'ce_liceo_paraiso_vocational',);
         }
 
         // ce_liceo_paraiso_nocturnal
         if ($pathinfo === '/nocturnal_area') {
-            return array (  '_controller' => 'CELiceoParaisoApp\\CELiceoParaisoBundle\\Controller\\DefaultController::showNocturnalAreaAction',  '_route' => 'ce_liceo_paraiso_nocturnal',);
+            return array (  '_controller' => 'CELiceoParaisoApp\\CELiceoParaisoBundle\\Controller\\AreaController::showNocturnalAreaAction',  '_route' => 'ce_liceo_paraiso_nocturnal',);
         }
 
         // ce_liceo_paraiso_diurnal
         if ($pathinfo === '/diurnal_area') {
-            return array (  '_controller' => 'CELiceoParaisoApp\\CELiceoParaisoBundle\\Controller\\DefaultController::showDiurnalAreaAction',  '_route' => 'ce_liceo_paraiso_diurnal',);
+            return array (  '_controller' => 'CELiceoParaisoApp\\CELiceoParaisoBundle\\Controller\\AreaController::showDiurnalAreaAction',  '_route' => 'ce_liceo_paraiso_diurnal',);
         }
 
         // ce_liceo_paraiso_ubication

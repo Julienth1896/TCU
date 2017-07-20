@@ -24,5 +24,6 @@
         </inverse-join-columns>
       </join-table>
     </many-to-many>
+    <many-to-many field="area" target-entity="Area" mapped-by="departamento"/>
   </entity>
 </doctrine-mapping>

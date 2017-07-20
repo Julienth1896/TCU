@@ -74,17 +74,26 @@ class __TwigTemplate_22e2a030a769418f3d0dc0227d0e9e3a6b32bab5b228d8c6531be8a56cb
                             </a>
                         </li>
                         <li>
-                            <a href=\"#\">
+                            <a href=\"";
+        // line 44
+        echo $this->env->getExtension('routing')->getPath("ce_liceo_paraiso_vocational");
+        echo "\">
                                 <span class=\"glyphicon glyphicon-education\"></span> Área Vocacional
                             </a>
                         </li>
                         <li>
-                            <a href=\"#\">
+                            <a href=\"";
+        // line 49
+        echo $this->env->getExtension('routing')->getPath("ce_liceo_paraiso_diurnal");
+        echo "\">
                                 <span class=\"glyphicon glyphicon-education\"></span> Área Diurna
                             </a>
                         </li>
                         <li>
-                            <a href=\"#\">
+                            <a href=\"";
+        // line 54
+        echo $this->env->getExtension('routing')->getPath("ce_liceo_paraiso_nocturnal");
+        echo "\">
                                 <span class=\"glyphicon glyphicon-education\"></span> Área Nocturna
                             </a>
                         </li>
@@ -112,13 +121,13 @@ class __TwigTemplate_22e2a030a769418f3d0dc0227d0e9e3a6b32bab5b228d8c6531be8a56cb
         $this->displayBlock('submenu', $context, $blocks);
         // line 75
         echo "                </div>
-                <div class=\"col-sm-8 text-left\"> 
+                <div class=\"col-sm-7 text-left\"> 
                     ";
         // line 77
         $this->displayBlock('content', $context, $blocks);
         // line 78
         echo "                </div>
-                <div class=\"col-sm-2 sidenav\">
+                <div class=\"col-sm-3 sidenav\">
                     ";
         // line 80
         $this->displayBlock('images', $context, $blocks);
@@ -165,6 +174,6 @@ class __TwigTemplate_22e2a030a769418f3d0dc0227d0e9e3a6b32bab5b228d8c6531be8a56cb
 
     public function getDebugInfo()
     {
-        return array (  151 => 80,  146 => 77,  140 => 74,  126 => 81,  124 => 80,  120 => 78,  118 => 77,  114 => 75,  112 => 74,  94 => 59,  71 => 39,  47 => 18,  37 => 11,  33 => 10,  22 => 1,);
+        return array (  160 => 80,  155 => 77,  149 => 74,  135 => 81,  133 => 80,  129 => 78,  127 => 77,  123 => 75,  121 => 74,  103 => 59,  95 => 54,  87 => 49,  79 => 44,  71 => 39,  47 => 18,  37 => 11,  33 => 10,  22 => 1,);
     }
 }

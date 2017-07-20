@@ -20,6 +20,7 @@ class __TwigTemplate_442c34bce5737b8a8637d0c398d3a94421f13ce5dbd1ad0954f0e2e3149
         $this->blocks = array(
             'submenu' => array($this, 'block_submenu'),
             'content' => array($this, 'block_content'),
+            'images' => array($this, 'block_images'),
         );
     }
 
@@ -81,7 +82,7 @@ class __TwigTemplate_442c34bce5737b8a8637d0c398d3a94421f13ce5dbd1ad0954f0e2e3149
             echo "        <p id=\"address\">";
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["institution"]) ? $context["institution"] : $this->getContext($context, "institution")), "getUbicacion", array(), "method"), "html", null, true);
             echo "</p>
-        <div id=\"map_canvas\" style=\"width: 600px; height: 300px; margin-left: 50px;\"></div>
+        <div id=\"map_canvas\" style=\"width: 650px; height: 300px; margin-left: 50px;\"></div>
         <hr>
         <h2>Área Administrativa</h2>
         <p>";
@@ -101,6 +102,14 @@ class __TwigTemplate_442c34bce5737b8a8637d0c398d3a94421f13ce5dbd1ad0954f0e2e3149
         }
     }
 
+    // line 26
+    public function block_images($context, array $blocks = array())
+    {
+        // line 27
+        echo "    <h1>IMÁGENES</h1>
+";
+    }
+
     public function getTemplateName()
     {
         return "CELiceoParaisoBundle:Default:index.html.twig";
@@ -113,6 +122,6 @@ class __TwigTemplate_442c34bce5737b8a8637d0c398d3a94421f13ce5dbd1ad0954f0e2e3149
 
     public function getDebugInfo()
     {
-        return array (  97 => 22,  94 => 21,  89 => 19,  81 => 15,  79 => 14,  74 => 13,  71 => 12,  65 => 9,  61 => 8,  57 => 7,  53 => 6,  49 => 5,  45 => 4,  40 => 3,  37 => 2,  11 => 1,);
+        return array (  109 => 27,  106 => 26,  98 => 22,  95 => 21,  90 => 19,  82 => 15,  80 => 14,  75 => 13,  72 => 12,  66 => 9,  62 => 8,  58 => 7,  54 => 6,  50 => 5,  46 => 4,  41 => 3,  38 => 2,  11 => 1,);
     }
 }

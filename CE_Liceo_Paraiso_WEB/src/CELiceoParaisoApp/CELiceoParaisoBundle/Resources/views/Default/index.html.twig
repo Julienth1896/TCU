@@ -13,7 +13,7 @@
     <h1 id="title">{{title}}</h1>
     {% if information == 'map'%}
         <p id="address">{{institution.getUbicacion()}}</p>
-        <div id="map_canvas" style="width: 600px; height: 300px; margin-left: 50px;"></div>
+        <div id="map_canvas" style="width: 650px; height: 300px; margin-left: 50px;"></div>
         <hr>
         <h2>Área Administrativa</h2>
         <p>{{institution.getEncargados()}}</p>
@@ -21,4 +21,8 @@
     {% if information == 'general'%}
         <div>{{institution}}</div>
     {% endif %}
+{% endblock %}
+
+{% block images %}
+    <h1>IMÁGENES</h1>
 {% endblock %}

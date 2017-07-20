@@ -20,6 +20,7 @@ class __TwigTemplate_e696e78c65d7a7f0973aa544de4a00f11c031f0c1ddc99ab20a373e90bc
         $this->blocks = array(
             'submenu' => array($this, 'block_submenu'),
             'content' => array($this, 'block_content'),
+            'images' => array($this, 'block_images'),
         );
     }
 
@@ -38,21 +39,64 @@ class __TwigTemplate_e696e78c65d7a7f0973aa544de4a00f11c031f0c1ddc99ab20a373e90bc
     {
         // line 3
         echo "    <p><a href=\"#\">Reseña</a></p>
+    <p><a href=\"#\">Departamentos</a></p>
     <p><a href=\"#\">Servicios</a></p>
     <p><a href=\"#\">Personal</a></p>
     <p><a href=\"#\">Noticias</a></p>
 ";
     }
 
-    // line 9
+    // line 10
     public function block_content($context, array $blocks = array())
     {
-        // line 10
-        echo "    <h1>Welcome</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-    <hr>
-    <h3>Test</h3>
-    <p>Lorem ipsum...</p>
+        // line 11
+        echo "    <h1 id=\"title\">";
+        echo twig_escape_filter($this->env, (isset($context["title"]) ? $context["title"] : $this->getContext($context, "title")), "html", null, true);
+        echo "</h1><hr>
+    ";
+        // line 12
+        if (((isset($context["subinformation"]) ? $context["subinformation"] : $this->getContext($context, "subinformation")) == "description")) {
+            // line 13
+            echo "        <p>";
+            echo twig_escape_filter($this->env, (isset($context["information"]) ? $context["information"] : $this->getContext($context, "information")), "html", null, true);
+            echo "</p>
+    ";
+        }
+        // line 15
+        echo "    ";
+        if (((isset($context["subinformation"]) ? $context["subinformation"] : $this->getContext($context, "subinformation")) == "departaments")) {
+            // line 16
+            echo "        
+    ";
+        }
+        // line 18
+        echo "    ";
+        if (((isset($context["subinformation"]) ? $context["subinformation"] : $this->getContext($context, "subinformation")) == "services")) {
+            // line 19
+            echo "        
+    ";
+        }
+        // line 21
+        echo "    ";
+        if (((isset($context["subinformation"]) ? $context["subinformation"] : $this->getContext($context, "subinformation")) == "personal")) {
+            // line 22
+            echo "        
+    ";
+        }
+        // line 24
+        echo "    ";
+        if (((isset($context["subinformation"]) ? $context["subinformation"] : $this->getContext($context, "subinformation")) == "news")) {
+            // line 25
+            echo "        
+    ";
+        }
+    }
+
+    // line 29
+    public function block_images($context, array $blocks = array())
+    {
+        // line 30
+        echo "    <h1>IMÁGENES</h1>
 ";
     }
 
@@ -68,6 +112,6 @@ class __TwigTemplate_e696e78c65d7a7f0973aa544de4a00f11c031f0c1ddc99ab20a373e90bc
 
     public function getDebugInfo()
     {
-        return array (  51 => 10,  48 => 9,  40 => 3,  37 => 2,  11 => 1,);
+        return array (  99 => 30,  96 => 29,  90 => 25,  87 => 24,  83 => 22,  80 => 21,  76 => 19,  73 => 18,  69 => 16,  66 => 15,  60 => 13,  58 => 12,  53 => 11,  50 => 10,  41 => 3,  38 => 2,  11 => 1,);
     }
 }

@@ -48,6 +48,13 @@ class Departamento
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
+     * @ORM\ManyToMany(targetEntity="Area", mappedBy="departamento")
+     */
+    private $area;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
      * @ORM\ManyToMany(targetEntity="Docente", inversedBy="codigoDepartamento")
      * @ORM\JoinTable(name="docente_departamento",
      *   joinColumns={
@@ -65,6 +72,7 @@ class Departamento
      */
     public function __construct()
     {
+        $this->area = new \Doctrine\Common\Collections\ArrayCollection();
         $this->codigoDocente = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
@@ -146,6 +154,39 @@ class Departamento
     public function getAdministrador()
     {
         return $this->administrador;
+    }
+
+    /**
+     * Add area
+     *
+     * @param \CELiceoParaisoApp\CELiceoParaisoBundle\Entity\Area $area
+     * @return Departamento
+     */
+    public function addArea(\CELiceoParaisoApp\CELiceoParaisoBundle\Entity\Area $area)
+    {
+        $this->area[] = $area;
+
+        return $this;
+    }
+
+    /**
+     * Remove area
+     *
+     * @param \CELiceoParaisoApp\CELiceoParaisoBundle\Entity\Area $area
+     */
+    public function removeArea(\CELiceoParaisoApp\CELiceoParaisoBundle\Entity\Area $area)
+    {
+        $this->area->removeElement($area);
+    }
+
+    /**
+     * Get area
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getArea()
+    {
+        return $this->area;
     }
 
     /**
