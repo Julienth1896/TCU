@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Docente" table="docente">
+    <id name="codigo" type="integer" column="codigo">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="nombre" type="string" column="nombre" length="50" nullable="false"/>
+    <field name="apellidos" type="string" column="apellidos" length="50" nullable="false"/>
+    <field name="correo" type="string" column="correo" length="50" nullable="false"/>
+    <many-to-many field="codigoDepartamento" target-entity="Departamento" mapped-by="codigoDocente"/>
+  </entity>
+</doctrine-mapping>

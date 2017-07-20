@@ -1,0 +1,70 @@
+<?php
+
+namespace CELiceoParaisoApp\CELiceoParaisoBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Noticia
+ *
+ * @ORM\Table(name="noticia", uniqueConstraints={@ORM\UniqueConstraint(name="nombre", columns={"nombre"})}, indexes={@ORM\Index(name="codigo_area", columns={"codigo_area"})})
+ * @ORM\Entity
+ */
+class Noticia
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="codigo", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $codigo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nombre", type="string", length=100, nullable=false)
+     */
+    private $nombre;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="fecha_publicacion", type="string", length=10, nullable=false)
+     */
+    private $fechaPublicacion;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="fecha_expericaion", type="string", length=10, nullable=false)
+     */
+    private $fechaExpericaion;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="descripcion", type="string", length=1000, nullable=false)
+     */
+    private $descripcion;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="imagen", type="string", length=100, nullable=false)
+     */
+    private $imagen;
+
+    /**
+     * @var \Area
+     *
+     * @ORM\ManyToOne(targetEntity="Area")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="codigo_area", referencedColumnName="codigo")
+     * })
+     */
+    private $codigoArea;
+
+
+}
