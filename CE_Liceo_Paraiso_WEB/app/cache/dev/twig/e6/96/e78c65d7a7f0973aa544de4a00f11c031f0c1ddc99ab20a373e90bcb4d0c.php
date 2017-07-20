@@ -50,15 +50,15 @@ class __TwigTemplate_e696e78c65d7a7f0973aa544de4a00f11c031f0c1ddc99ab20a373e90bc
     public function block_content($context, array $blocks = array())
     {
         // line 11
-        echo "    <h1 id=\"title\">";
-        echo twig_escape_filter($this->env, (isset($context["title"]) ? $context["title"] : $this->getContext($context, "title")), "html", null, true);
+        echo "    <h1 id=\"title\">Área ";
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["area"]) ? $context["area"] : $this->getContext($context, "area")), "getNombre", array(), "method"), "html", null, true);
         echo "</h1><hr>
     ";
         // line 12
         if (((isset($context["subinformation"]) ? $context["subinformation"] : $this->getContext($context, "subinformation")) == "description")) {
             // line 13
             echo "        <p>";
-            echo twig_escape_filter($this->env, (isset($context["information"]) ? $context["information"] : $this->getContext($context, "information")), "html", null, true);
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["area"]) ? $context["area"] : $this->getContext($context, "area")), "getDescripcion", array(), "method"), "html", null, true);
             echo "</p>
     ";
         }
