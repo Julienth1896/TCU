@@ -32,7 +32,11 @@ class __TwigTemplate_5af8c5935fe8fba93a49b4e75673d6dc8f9fb39c923bb192f1fddf712ea
     protected function doDisplay(array $context, array $blocks = array())
     {
         // line 3
+<<<<<<< HEAD
         $context["__internal_c50c20bdc855f9be90586e0d2ae40e15aa450dbe4c7831409a88aca358ab9fac"] = $this;
+=======
+        $context["__internal_3c5e17182408eee113d053679201ae223023753682db3a87f34896b344b729b6"] = $this;
+>>>>>>> origin/administrator
         // line 1
         $this->parent->display($context, array_merge($this->blocks, $blocks));
     }
@@ -93,7 +97,11 @@ class __TwigTemplate_5af8c5935fe8fba93a49b4e75673d6dc8f9fb39c923bb192f1fddf712ea
             echo "</code></td>
                 <td><code>";
             // line 34
+<<<<<<< HEAD
             echo $context["__internal_c50c20bdc855f9be90586e0d2ae40e15aa450dbe4c7831409a88aca358ab9fac"]->getdisplay_listener($context["listener"]);
+=======
+            echo $context["__internal_3c5e17182408eee113d053679201ae223023753682db3a87f34896b344b729b6"]->getdisplay_listener($context["listener"]);
+>>>>>>> origin/administrator
             echo "</code></td>
             </tr>
         ";
@@ -131,7 +139,11 @@ class __TwigTemplate_5af8c5935fe8fba93a49b4e75673d6dc8f9fb39c923bb192f1fddf712ea
                 echo "</code></td>
                     <td><code>";
                 // line 51
+<<<<<<< HEAD
                 echo $context["__internal_c50c20bdc855f9be90586e0d2ae40e15aa450dbe4c7831409a88aca358ab9fac"]->getdisplay_listener($this->getAttribute((isset($context["listeners"]) ? $context["listeners"] : $this->getContext($context, "listeners")), $context["listener"], array(), "array"));
+=======
+                echo $context["__internal_3c5e17182408eee113d053679201ae223023753682db3a87f34896b344b729b6"]->getdisplay_listener($this->getAttribute((isset($context["listeners"]) ? $context["listeners"] : $this->getContext($context, "listeners")), $context["listener"], array(), "array"));
+>>>>>>> origin/administrator
                 echo "</code></td>
                 </tr>
             ";
