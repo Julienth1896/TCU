@@ -14,5 +14,16 @@
         <join-column name="administrador" referenced-column-name="codigo"/>
       </join-columns>
     </many-to-one>
+    <many-to-many field="codigoDocente" target-entity="Docente" inversed-by="codigoDepartamento">
+      <join-table name="docente_departamento">
+        <join-columns>
+          <join-column name="codigo_departamento" referenced-column-name="codigo"/>
+        </join-columns>
+        <inverse-join-columns>
+          <join-column name="codigo_docente" referenced-column-name="codigo"/>
+        </inverse-join-columns>
+      </join-table>
+    </many-to-many>
+    <many-to-many field="area" target-entity="Area" mapped-by="departamento"/>
   </entity>
 </doctrine-mapping>

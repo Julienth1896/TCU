@@ -14,15 +14,35 @@
     </id>
     <field name="nombre" type="string" column="nombre" length="50" nullable="false"/>
     <field name="descripcion" type="string" column="descripcion" length="3000" nullable="false"/>
-    <many-to-one field="institucion" target-entity="Institucion">
-      <join-columns>
-        <join-column name="institucion" referenced-column-name="codigo"/>
-      </join-columns>
-    </many-to-one>
     <many-to-one field="administrador" target-entity="Administrador">
       <join-columns>
         <join-column name="administrador" referenced-column-name="codigo"/>
       </join-columns>
     </many-to-one>
+    <many-to-one field="institucion" target-entity="Institucion">
+      <join-columns>
+        <join-column name="institucion" referenced-column-name="codigo"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-many field="codigoServicio" target-entity="Servicio" inversed-by="codigoArea">
+      <join-table name="servicio_area">
+        <join-columns>
+          <join-column name="codigo_area" referenced-column-name="codigo"/>
+        </join-columns>
+        <inverse-join-columns>
+          <join-column name="codigo_servicio" referenced-column-name="codigo"/>
+        </inverse-join-columns>
+      </join-table>
+    </many-to-many>
+    <many-to-many field="departamento" target-entity="Departamento" inversed-by="area">
+      <join-table name="area_departamento">
+        <join-columns>
+          <join-column name="area" referenced-column-name="codigo"/>
+        </join-columns>
+        <inverse-join-columns>
+          <join-column name="departamento" referenced-column-name="codigo"/>
+        </inverse-join-columns>
+      </join-table>
+    </many-to-many>
   </entity>
 </doctrine-mapping>

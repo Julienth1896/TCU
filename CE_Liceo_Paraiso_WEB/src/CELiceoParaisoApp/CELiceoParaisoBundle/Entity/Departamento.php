@@ -45,6 +45,36 @@ class Departamento
      */
     private $administrador;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="Area", mappedBy="departamento")
+     */
+    private $area;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="Docente", inversedBy="codigoDepartamento")
+     * @ORM\JoinTable(name="docente_departamento",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="codigo_departamento", referencedColumnName="codigo")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="codigo_docente", referencedColumnName="codigo")
+     *   }
+     * )
+     */
+    private $codigoDocente;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->area = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->codigoDocente = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
 
     /**
@@ -124,5 +154,71 @@ class Departamento
     public function getAdministrador()
     {
         return $this->administrador;
+    }
+
+    /**
+     * Add area
+     *
+     * @param \CELiceoParaisoApp\CELiceoParaisoBundle\Entity\Area $area
+     * @return Departamento
+     */
+    public function addArea(\CELiceoParaisoApp\CELiceoParaisoBundle\Entity\Area $area)
+    {
+        $this->area[] = $area;
+
+        return $this;
+    }
+
+    /**
+     * Remove area
+     *
+     * @param \CELiceoParaisoApp\CELiceoParaisoBundle\Entity\Area $area
+     */
+    public function removeArea(\CELiceoParaisoApp\CELiceoParaisoBundle\Entity\Area $area)
+    {
+        $this->area->removeElement($area);
+    }
+
+    /**
+     * Get area
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getArea()
+    {
+        return $this->area;
+    }
+
+    /**
+     * Add codigoDocente
+     *
+     * @param \CELiceoParaisoApp\CELiceoParaisoBundle\Entity\Docente $codigoDocente
+     * @return Departamento
+     */
+    public function addCodigoDocente(\CELiceoParaisoApp\CELiceoParaisoBundle\Entity\Docente $codigoDocente)
+    {
+        $this->codigoDocente[] = $codigoDocente;
+
+        return $this;
+    }
+
+    /**
+     * Remove codigoDocente
+     *
+     * @param \CELiceoParaisoApp\CELiceoParaisoBundle\Entity\Docente $codigoDocente
+     */
+    public function removeCodigoDocente(\CELiceoParaisoApp\CELiceoParaisoBundle\Entity\Docente $codigoDocente)
+    {
+        $this->codigoDocente->removeElement($codigoDocente);
+    }
+
+    /**
+     * Get codigoDocente
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getCodigoDocente()
+    {
+        return $this->codigoDocente;
     }
 }

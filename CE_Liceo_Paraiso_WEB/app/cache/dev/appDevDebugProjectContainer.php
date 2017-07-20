@@ -25,7 +25,7 @@ class appDevDebugProjectContainer extends Container
     public function __construct()
     {
         $dir = __DIR__;
-        for ($i = 1; $i <= 4; ++$i) {
+        for ($i = 1; $i <= 5; ++$i) {
             $this->targetDirs[$i] = $dir = dirname($dir);
         }
         $this->parameters = $this->getDefaultParameters();
@@ -643,7 +643,7 @@ class appDevDebugProjectContainer extends Container
     {
         $this->services['doctrine_cache.providers.doctrine.orm.default_metadata_cache'] = $instance = new \Doctrine\Common\Cache\ArrayCache();
 
-        $instance->setNamespace('sf2orm_default_d3ed81d39525774a2ba0a8f2040ca944f8fcf706dec8e71e5d335276da0c95d8');
+        $instance->setNamespace('sf2orm_default_dc513d3dee1c25e930e23e848a33845a6b82e91abf386518656544aacf4bba07');
 
         return $instance;
     }
@@ -660,7 +660,7 @@ class appDevDebugProjectContainer extends Container
     {
         $this->services['doctrine_cache.providers.doctrine.orm.default_query_cache'] = $instance = new \Doctrine\Common\Cache\ArrayCache();
 
-        $instance->setNamespace('sf2orm_default_d3ed81d39525774a2ba0a8f2040ca944f8fcf706dec8e71e5d335276da0c95d8');
+        $instance->setNamespace('sf2orm_default_dc513d3dee1c25e930e23e848a33845a6b82e91abf386518656544aacf4bba07');
 
         return $instance;
     }
@@ -677,7 +677,7 @@ class appDevDebugProjectContainer extends Container
     {
         $this->services['doctrine_cache.providers.doctrine.orm.default_result_cache'] = $instance = new \Doctrine\Common\Cache\ArrayCache();
 
-        $instance->setNamespace('sf2orm_default_d3ed81d39525774a2ba0a8f2040ca944f8fcf706dec8e71e5d335276da0c95d8');
+        $instance->setNamespace('sf2orm_default_dc513d3dee1c25e930e23e848a33845a6b82e91abf386518656544aacf4bba07');
 
         return $instance;
     }
@@ -3853,7 +3853,7 @@ class appDevDebugProjectContainer extends Container
 
             ),
             'assetic.java.bin' => 'C:\\ProgramData\\Oracle\\Java\\javapath\\java.EXE',
-            'assetic.node.bin' => 'C:\\Program Files (x86)\\nodejs\\\\node.EXE',
+            'assetic.node.bin' => '/usr/bin/node',
             'assetic.ruby.bin' => '/usr/bin/ruby',
             'assetic.sass.bin' => '/usr/bin/sass',
             'assetic.filter.cssrewrite.class' => 'Assetic\\Filter\\CssRewriteFilter',
