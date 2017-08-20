@@ -77,6 +77,7 @@
   'SwiftmailerBundle:Collector:swiftmailer.html.twig' => 'C:\\xampp\\htdocs\\TCU\\CE_Liceo_Paraiso_WEB\\vendor\\symfony\\swiftmailer-bundle/Resources/views/Collector/swiftmailer.html.twig',
   'DoctrineBundle:Collector:db.html.twig' => 'C:\\xampp\\htdocs\\TCU\\CE_Liceo_Paraiso_WEB\\vendor\\doctrine\\doctrine-bundle/Resources/views/Collector/db.html.twig',
   'DoctrineBundle:Collector:explain.html.twig' => 'C:\\xampp\\htdocs\\TCU\\CE_Liceo_Paraiso_WEB\\vendor\\doctrine\\doctrine-bundle/Resources/views/Collector/explain.html.twig',
+  'CELiceoParaisoBundle:Administrator:login.html.twig' => 'C:\\xampp\\htdocs\\TCU\\CE_Liceo_Paraiso_WEB\\src\\CELiceoParaisoApp\\CELiceoParaisoBundle/Resources/views/Administrator/login.html.twig',
   'CELiceoParaisoBundle:Default:area_view.html.twig' => 'C:\\xampp\\htdocs\\TCU\\CE_Liceo_Paraiso_WEB\\src\\CELiceoParaisoApp\\CELiceoParaisoBundle/Resources/views/Default/area_view.html.twig',
   'CELiceoParaisoBundle:Default:index.html.twig' => 'C:\\xampp\\htdocs\\TCU\\CE_Liceo_Paraiso_WEB\\src\\CELiceoParaisoApp\\CELiceoParaisoBundle/Resources/views/Default/index.html.twig',
   'CELiceoParaisoBundle::visitor_view.html.twig' => 'C:\\xampp\\htdocs\\TCU\\CE_Liceo_Paraiso_WEB\\src\\CELiceoParaisoApp\\CELiceoParaisoBundle/Resources/views/visitor_view.html.twig',

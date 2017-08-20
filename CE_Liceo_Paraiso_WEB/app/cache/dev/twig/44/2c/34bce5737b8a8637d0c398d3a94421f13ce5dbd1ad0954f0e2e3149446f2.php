@@ -79,13 +79,13 @@ class __TwigTemplate_442c34bce5737b8a8637d0c398d3a94421f13ce5dbd1ad0954f0e2e3149
         // line 14
         if (((isset($context["information"]) ? $context["information"] : $this->getContext($context, "information")) == "map")) {
             // line 15
-            echo "        <p id=\"address\">";
+            echo "        <p class=\"text-justify\" id=\"address\">";
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["institution"]) ? $context["institution"] : $this->getContext($context, "institution")), "getUbicacion", array(), "method"), "html", null, true);
             echo "</p>
         <div id=\"map_canvas\" style=\"width: 650px; height: 300px; margin-left: 50px;\"></div>
         <hr>
         <h2>Área Administrativa</h2>
-        <p>";
+        <p class=\"text-justify\">";
             // line 19
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["institution"]) ? $context["institution"] : $this->getContext($context, "institution")), "getEncargados", array(), "method"), "html", null, true);
             echo "</p>
@@ -95,7 +95,7 @@ class __TwigTemplate_442c34bce5737b8a8637d0c398d3a94421f13ce5dbd1ad0954f0e2e3149
         echo "    ";
         if (((isset($context["information"]) ? $context["information"] : $this->getContext($context, "information")) == "general")) {
             // line 22
-            echo "        <div>";
+            echo "        <div class=\"text-justify\">";
             echo twig_escape_filter($this->env, (isset($context["institution"]) ? $context["institution"] : $this->getContext($context, "institution")), "html", null, true);
             echo "</div>
     ";

@@ -13,6 +13,7 @@ class __TwigTemplate_22e2a030a769418f3d0dc0227d0e9e3a6b32bab5b228d8c6531be8a56cb
             'submenu' => array($this, 'block_submenu'),
             'content' => array($this, 'block_content'),
             'images' => array($this, 'block_images'),
+            'scripts' => array($this, 'block_scripts'),
         );
     }
 
@@ -120,7 +121,7 @@ class __TwigTemplate_22e2a030a769418f3d0dc0227d0e9e3a6b32bab5b228d8c6531be8a56cb
 
         <div class=\"container-fluid text-center\">    
             <div class=\"row content\">
-                <div class=\"col-sm-2 sidenav\">
+                <div class=\"col-sm-3 sidenav\">
                     ";
         // line 76
         $this->displayBlock('submenu', $context, $blocks);
@@ -147,7 +148,11 @@ class __TwigTemplate_22e2a030a769418f3d0dc0227d0e9e3a6b32bab5b228d8c6531be8a56cb
         </footer>
 
     </body>
-</html>";
+    ";
+        // line 93
+        $this->displayBlock('scripts', $context, $blocks);
+        // line 94
+        echo "</html>";
     }
 
     // line 76
@@ -167,6 +172,11 @@ class __TwigTemplate_22e2a030a769418f3d0dc0227d0e9e3a6b32bab5b228d8c6531be8a56cb
         echo " ";
     }
 
+    // line 93
+    public function block_scripts($context, array $blocks = array())
+    {
+    }
+
     public function getTemplateName()
     {
         return "CELiceoParaisoBundle::visitor_view.html.twig";
@@ -179,6 +189,6 @@ class __TwigTemplate_22e2a030a769418f3d0dc0227d0e9e3a6b32bab5b228d8c6531be8a56cb
 
     public function getDebugInfo()
     {
-        return array (  165 => 82,  160 => 79,  154 => 76,  140 => 83,  138 => 82,  134 => 80,  132 => 79,  128 => 77,  126 => 76,  112 => 65,  103 => 59,  95 => 54,  87 => 49,  79 => 44,  71 => 39,  47 => 18,  37 => 11,  33 => 10,  22 => 1,);
+        return array (  176 => 93,  170 => 82,  165 => 79,  159 => 76,  155 => 94,  153 => 93,  141 => 83,  139 => 82,  135 => 80,  133 => 79,  129 => 77,  127 => 76,  113 => 65,  104 => 59,  96 => 54,  88 => 49,  80 => 44,  72 => 39,  48 => 18,  38 => 11,  34 => 10,  23 => 1,);
     }
 }

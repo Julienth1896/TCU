@@ -12,14 +12,14 @@
 {% block content %}
     <h1 id="title">{{title}}</h1>
     {% if information == 'map'%}
-        <p id="address">{{institution.getUbicacion()}}</p>
+        <p class="text-justify" id="address">{{institution.getUbicacion()}}</p>
         <div id="map_canvas" style="width: 650px; height: 300px; margin-left: 50px;"></div>
         <hr>
         <h2>Área Administrativa</h2>
-        <p>{{institution.getEncargados()}}</p>
+        <p class="text-justify">{{institution.getEncargados()}}</p>
     {% endif %}
     {% if information == 'general'%}
-        <div>{{institution}}</div>
+        <div class="text-justify">{{institution}}</div>
     {% endif %}
 {% endblock %}
 

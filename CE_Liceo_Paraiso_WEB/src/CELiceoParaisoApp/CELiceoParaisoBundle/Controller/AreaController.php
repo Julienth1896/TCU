@@ -13,7 +13,7 @@ class AreaController extends Controller{
         else{
             $em = $this->getDoctrine()->getEntityManager();
             $area = $em->getRepository('CELiceoParaisoBundle:Area')->findBy(array('nombre'=>'Vocacional'));
-            $data = array('title'=>'Área Vocacional', 'subinformation'=>'description', 'area'=>current($area));
+            $data = array('area'=>current($area));
             return $this->render('CELiceoParaisoBundle:Default:area_view.html.twig', $data);
         }//sesión cerrada
     }
@@ -26,8 +26,7 @@ class AreaController extends Controller{
         else{
             $em = $this->getDoctrine()->getEntityManager();
             $area = $em->getRepository('CELiceoParaisoBundle:Area')->findBy(array('nombre'=>'Nocturna'));
-            $description = current($area)->getDescripcion();
-            $data = array('title'=>'Área Vocacional', 'subinformation'=>'description', 'information'=>$description);
+            $data = array('subinformation'=>'description', 'area'=>current($area));
             return $this->render('CELiceoParaisoBundle:Default:area_view.html.twig', $data);
         }//sesión cerrada
     }
@@ -40,8 +39,7 @@ class AreaController extends Controller{
         else{
             $em = $this->getDoctrine()->getEntityManager();
             $area = $em->getRepository('CELiceoParaisoBundle:Area')->findBy(array('nombre'=>'Diurna'));
-            $description = current($area)->getDescripcion();
-            $data = array('title'=>'Área Vocacional', 'subinformation'=>'description', 'information'=>$description);
+            $data = array('subinformation'=>'description', 'area'=>current($area));
             return $this->render('CELiceoParaisoBundle:Default:area_view.html.twig', $data);
         }//sesión cerrada
     }

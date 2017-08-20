@@ -1,31 +1,27 @@
 {% extends "CELiceoParaisoBundle::visitor_view.html.twig" %}
 {% block submenu %}
-    <p><a href="#">Reseña</a></p>
-    <p><a href="#">Departamentos</a></p>
-    <p><a href="#">Servicios</a></p>
-    <p><a href="#">Personal</a></p>
-    <p><a href="#">Noticias</a></p>
+    <ul class="nav nav-pills nav-stacked">
+        <li class="active"><a href="#">Reseña</a></li>
+        <li><a href="#">Departamentos</a></li>
+        <li><a href="#">Servicios</a></li>
+        <li><a href="#">Personal</a></li>
+        <li><a href="#">Noticias</a></li>
+    </ul><br>
 {% endblock %}
 
 {% block content %}
     <h1 id="title">Área {{area.getNombre()}}</h1><hr>
-    {%if subinformation == 'description' %}
-        <p>{{area.getDescripcion()}}</p>
-    {%endif%}
-    {%if subinformation == 'departaments' %}
-        
-    {%endif%}
-    {%if subinformation == 'services' %}
-        
-    {%endif%}
-    {%if subinformation == 'personal' %}
-        
-    {%endif%}
-    {%if subinformation == 'news' %}
-        
-    {%endif%}
+    <div id="content">
+        <p class="text-justify">{{area.getDescripcion()}}</p>
+    </div>
 {% endblock %}
 
 {% block images %}
     <h1>IMÁGENES</h1>
+{% endblock %}
+
+{% block scripts %} 
+    <script type="text/javascript">
+        
+    </script>
 {% endblock %}
