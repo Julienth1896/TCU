@@ -30,52 +30,43 @@ class __TwigTemplate_274f3e4b04ffe7eb3fc21fc90a4a603a49e757fede65f0ee369ffbf80b9
         <link rel=\"stylesheet\" href=\"http://fonts.googleapis.com/css?family=Roboto:400,100,300,500\">
         <link rel=\"stylesheet\" href=\"";
         // line 13
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/ce_liceo_paraiso_app/css/login/font-awesome.min.css"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/ce_liceo_paraiso_app/login/css/font-awesome.min.css"), "html", null, true);
         echo "\">
         <link rel=\"stylesheet\" href=\"";
         // line 14
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/ce_liceo_paraiso_app/css/login/form-elements.css"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/ce_liceo_paraiso_app/login/css/form-elements.css"), "html", null, true);
         echo "\">
         <link rel=\"stylesheet\" href=\"";
         // line 15
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/ce_liceo_paraiso_app/css/login/style.css"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/ce_liceo_paraiso_app/login/css/style.css"), "html", null, true);
         echo "\">
-
-        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
-            <script src=\"https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js\"></script>
-            <script src=\"https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js\"></script>
-        <![endif]-->
 
         <!-- Javascript -->
         <script src=\"";
-        // line 25
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/ce_liceo_paraiso_app/js/login/jquery-1.11.1.min.js"), "html", null, true);
+        // line 18
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/ce_liceo_paraiso_app/login/js/jquery-1.11.1.min.js"), "html", null, true);
         echo "\"></script>
         <script src=\"";
-        // line 26
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/ce_liceo_paraiso_app/js/login/jquery.backstretch.min.js"), "html", null, true);
+        // line 19
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/ce_liceo_paraiso_app/login/js/jquery.backstretch.min.js"), "html", null, true);
         echo "\"></script>
         <script src=\"";
-        // line 27
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/ce_liceo_paraiso_app/js/login/scripts.js"), "html", null, true);
+        // line 20
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/ce_liceo_paraiso_app/login/js/scripts.js"), "html", null, true);
         echo "\"></script>
     </head>
 
     <body>
         <!-- Top content -->
         <div class=\"top-content\">
-
             <div class=\"inner-bg\">
                 <div class=\"container\">
                     <div class=\"row\">
                         <div class=\"col-sm-8 col-sm-offset-2 text\">
-                            <h1><strong>Bootstrap</strong> Login Form</h1>
+                            <h1><strong>CELIPA</strong> Iniciar Sesión</h1>
                             <div class=\"description\">
                                 <p>
-                                    This is a free responsive login form made with Bootstrap. 
-                                    Download it on <a href=\"http://azmind.com\"><strong>AZMIND</strong></a>, customize and use it as you like!
+                                    Administración del Sitio Web CELIPA (Centro Educativo Liceo Paríso)
                                 </p>
                             </div>
                         </div>
@@ -84,47 +75,75 @@ class __TwigTemplate_274f3e4b04ffe7eb3fc21fc90a4a603a49e757fede65f0ee369ffbf80b9
                         <div class=\"col-sm-6 col-sm-offset-3 form-box\">
                             <div class=\"form-top\">
                                 <div class=\"form-top-left\">
-                                    <h3>Login to our site</h3>
-                                    <p>Enter your username and password to log on:</p>
+                                    <h3>Inicie Sesión</h3>
+                                    <p>Ingrese su usuario y contraseña:</p>
                                 </div>
                                 <div class=\"form-top-right\">
                                     <i class=\"fa fa-key\"></i>
                                 </div>
                             </div>
                             <div class=\"form-bottom\">
-                                <form role=\"form\" action=\"\" method=\"post\" class=\"login-form\">
-                                    <div class=\"form-group\">
-                                        <label class=\"sr-only\" for=\"form-username\">Username</label>
-                                        <input type=\"text\" name=\"form-username\" placeholder=\"Username...\" class=\"form-username form-control\" id=\"form-username\">
+                                <form role=\"form\" action=\"";
+        // line 50
+        echo $this->env->getExtension('routing')->getPath("ce_liceo_paraiso_check_user");
+        echo "\" method=\"post\" class=\"login-form\">
+                                    ";
+        // line 51
+        if (array_key_exists("alert", $context)) {
+            // line 52
+            echo "                                        ";
+            if (((isset($context["alert"]) ? $context["alert"] : $this->getContext($context, "alert")) == "error")) {
+                // line 53
+                echo "                                            <div class=\"alert alert-warning text-center\">
+                                                <strong>
+                                                    <img src=\"";
+                // line 55
+                echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/ce_liceo_paraiso_app/img/cancel.png"), "html", null, true);
+                echo "\"/> 
+                                                    Datos inv&aacute;lidos
+                                                </strong>
+                                            </div>
+                                        ";
+            }
+            // line 60
+            echo "                                        ";
+            if (((isset($context["alert"]) ? $context["alert"] : $this->getContext($context, "alert")) == "success")) {
+                // line 61
+                echo "                                            <div class=\"alert alert-success text-center\">
+                                                <strong>
+                                                    <img src=\"";
+                // line 63
+                echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/ce_liceo_paraiso_app/img/img.png"), "html", null, true);
+                echo "\"/> 
+                                                    Datos actualizados.
+                                                </strong>
+                                            </div>
+                                        ";
+            }
+            // line 68
+            echo "                                    ";
+        }
+        // line 69
+        echo "                                    <div class=\"form-group\">
+                                        <label class=\"sr-only\" for=\"form-username\">Usuario</label>
+                                        <input type=\"text\" name=\"form-username\" placeholder=\"Usuario...\" class=\"form-username form-control\" id=\"form-username\">
                                     </div>
                                     <div class=\"form-group\">
-                                        <label class=\"sr-only\" for=\"form-password\">Password</label>
-                                        <input type=\"password\" name=\"form-password\" placeholder=\"Password...\" class=\"form-password form-control\" id=\"form-password\">
+                                        <label class=\"sr-only\" for=\"form-password\">Contraseña</label>
+                                        <input type=\"password\" name=\"form-password\" placeholder=\"Contraseña...\" class=\"form-password form-control\" id=\"form-password\">
                                     </div>
-                                    <button type=\"submit\" class=\"btn\">Sign in!</button>
+                                    <button type=\"submit\" class=\"btn\">Iniciar Sesión</button>
                                 </form>
-                            </div>
-                        </div>
-                    </div>
-                    <div class=\"row\">
-                        <div class=\"col-sm-6 col-sm-offset-3 social-login\">
-                            <h3>...or login with:</h3>
-                            <div class=\"social-login-buttons\">
-                                <a class=\"btn btn-link-1 btn-link-1-facebook\" href=\"#\">
-                                    <i class=\"fa fa-facebook\"></i> Facebook
-                                </a>
-                                <a class=\"btn btn-link-1 btn-link-1-twitter\" href=\"#\">
-                                    <i class=\"fa fa-twitter\"></i> Twitter
-                                </a>
-                                <a class=\"btn btn-link-1 btn-link-1-google-plus\" href=\"#\">
-                                    <i class=\"fa fa-google-plus\"></i> Google Plus
-                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <footer class=\"container-fluid text-center\">
+            <p>Centro Educativo Liceo de Paraíso</p>
+            <p>Trabajo Comunal Universitario - UCR - 2017</p>
+        </footer>
     </body>
 </html>";
     }
@@ -141,6 +160,6 @@ class __TwigTemplate_274f3e4b04ffe7eb3fc21fc90a4a603a49e757fede65f0ee369ffbf80b9
 
     public function getDebugInfo()
     {
-        return array (  62 => 27,  58 => 26,  54 => 25,  41 => 15,  37 => 14,  33 => 13,  19 => 1,);
+        return array (  127 => 69,  124 => 68,  116 => 63,  112 => 61,  109 => 60,  101 => 55,  97 => 53,  94 => 52,  92 => 51,  88 => 50,  55 => 20,  51 => 19,  47 => 18,  41 => 15,  37 => 14,  33 => 13,  19 => 1,);
     }
 }

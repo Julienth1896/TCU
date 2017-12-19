@@ -73,6 +73,21 @@ class Area
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
+     * @ORM\ManyToMany(targetEntity="Personal", inversedBy="area")
+     * @ORM\JoinTable(name="area_personal",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="area", referencedColumnName="codigo")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="personal", referencedColumnName="codigo")
+     *   }
+     * )
+     */
+    private $personal;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
      * @ORM\ManyToMany(targetEntity="Servicio", inversedBy="codigoArea")
      * @ORM\JoinTable(name="servicio_area",
      *   joinColumns={
@@ -91,6 +106,7 @@ class Area
     public function __construct()
     {
         $this->departamento = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->personal = new \Doctrine\Common\Collections\ArrayCollection();
         $this->codigoServicio = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
@@ -228,6 +244,39 @@ class Area
     public function getDepartamento()
     {
         return $this->departamento;
+    }
+
+    /**
+     * Add personal
+     *
+     * @param \CELiceoParaisoApp\CELiceoParaisoBundle\Entity\Personal $personal
+     * @return Area
+     */
+    public function addPersonal(\CELiceoParaisoApp\CELiceoParaisoBundle\Entity\Personal $personal)
+    {
+        $this->personal[] = $personal;
+
+        return $this;
+    }
+
+    /**
+     * Remove personal
+     *
+     * @param \CELiceoParaisoApp\CELiceoParaisoBundle\Entity\Personal $personal
+     */
+    public function removePersonal(\CELiceoParaisoApp\CELiceoParaisoBundle\Entity\Personal $personal)
+    {
+        $this->personal->removeElement($personal);
+    }
+
+    /**
+     * Get personal
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getPersonal()
+    {
+        return $this->personal;
     }
 
     /**

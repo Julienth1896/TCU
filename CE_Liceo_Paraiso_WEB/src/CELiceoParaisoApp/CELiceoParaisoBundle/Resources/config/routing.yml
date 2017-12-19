@@ -1,47 +1,110 @@
 ce_liceo_paraiso_homepage:
     path:     /home
     defaults: { _controller: CELiceoParaisoBundle:Default:index }
+    
+ce_liceo_paraiso_about_us:
+    path:     /about_us
+    defaults: { _controller: CELiceoParaisoBundle:Default:aboutUs }
 
-ce_liceo_paraiso_description:
-    path:     /description
-    defaults: { _controller: CELiceoParaisoBundle:Default:showDescription }
-
-ce_liceo_paraiso_objectives:
-    path:     /objectives
-    defaults: { _controller: CELiceoParaisoBundle:Default:showObjectives }
-    
-ce_liceo_paraiso_vision:
-    path:     /vision
-    defaults: { _controller: CELiceoParaisoBundle:Default:showVision }
-    
-ce_liceo_paraiso_mision:
-    path:     /mision
-    defaults: { _controller: CELiceoParaisoBundle:Default:showMision }
-    
-ce_liceo_paraiso_managers:
-    path:     /information
-    defaults: { _controller: CELiceoParaisoBundle:Default:showManagers }
-    
-ce_liceo_paraiso_gallery:
-    path:     /gallery
-    defaults: { _controller: CELiceoParaisoBundle:Default:showGallery }
-    
-ce_liceo_paraiso_vocational:
-    path:     /vocational_area
-    defaults: { _controller: CELiceoParaisoBundle:Area:showVocationalArea }
-
-ce_liceo_paraiso_nocturnal:
-    path:     /nocturnal_area
-    defaults: { _controller: CELiceoParaisoBundle:Area:showNocturnalArea }
-
-ce_liceo_paraiso_diurnal:
-    path:     /diurnal_area
-    defaults: { _controller: CELiceoParaisoBundle:Area:showDiurnalArea }
-    
 ce_liceo_paraiso_ubication:
     path:     /ubication
     defaults: { _controller: CELiceoParaisoBundle:Default:showUbication }
-    
+
+ce_liceo_paraiso_credits:
+    path:     /credits
+    defaults: { _controller: CELiceoParaisoBundle:Default:showCredits }
+   
+
+   
 ce_liceo_paraiso_login:
-    path:     /singup
+    path:     /login
     defaults: { _controller: CELiceoParaisoBundle:Administrator:login }
+    
+ce_liceo_paraiso_check_user:
+    path:     /dashboard
+    defaults: { _controller: CELiceoParaisoBundle:Administrator:checkUser }
+    
+ce_liceo_paraiso_change_pass:
+    path:     /pass
+    defaults: { _controller: CELiceoParaisoBundle:Administrator:changePass }
+    
+ce_liceo_paraiso_change_pass_form:
+    path:     /form
+    defaults: { _controller: CELiceoParaisoBundle:Administrator:changePassForm }
+    
+ce_liceo_paraiso_dashboard:
+    path:     /administrator
+    defaults: { _controller: CELiceoParaisoBundle:Administrator:homeAdmin }
+    
+ce_liceo_paraiso_institution_admin:
+    path:     /institution
+    defaults: { _controller: CELiceoParaisoBundle:Administrator:institution }
+    
+ce_liceo_paraiso_institution_history:
+    path:     /institution_history
+    defaults: { _controller: CELiceoParaisoBundle:Administrator:updateHistory }
+    
+ce_liceo_paraiso_institution_vision:
+    path:     /institution_vision
+    defaults: { _controller: CELiceoParaisoBundle:Administrator:updateVision }
+
+ce_liceo_paraiso_institution_mision:
+    path:     /institution_mision
+    defaults: { _controller: CELiceoParaisoBundle:Administrator:updateMision }
+    
+ce_liceo_paraiso_institution_management:
+    path:     /institution_management
+    defaults: { _controller: CELiceoParaisoBundle:Administrator:updateManagement }
+    
+ce_liceo_paraiso_area_nocturn:
+    path:     /area_nocturn
+    defaults: { _controller: CELiceoParaisoBundle:Administrator:areaNocturn}
+    
+ce_liceo_paraiso_plan_national:
+    path:     /plan_national
+    defaults: { _controller: CELiceoParaisoBundle:Administrator:planNational}
+    
+ce_liceo_paraiso_responsable_area:
+    path:     /area/{code}
+    defaults: { _controller: CELiceoParaisoBundle:Administrator:responsableArea}
+    
+ce_liceo_paraiso_description_area:
+    path:     /description_area/{codeArea}
+    defaults: { _controller: CELiceoParaisoBundle:Administrator:descriptionArea}
+    
+ce_liceo_paraiso_departaments:
+    path:   /departaments/{area}
+    defaults: { _controller: CELiceoParaisoBundle:Administrator:showDepartamentsOfArea}
+
+ce_liceo_paraiso_add_department:
+    path:     /new_department/{code}
+    defaults: { _controller: CELiceoParaisoBundle:Administrator:addDepartment}
+    
+ce_liceo_paraiso_show_personal:
+    path:     /personal/{area}
+    defaults: { _controller: CELiceoParaisoBundle:Administrator:showPersonalOfArea}
+    
+ce_liceo_paraiso_detail_department:
+    path:     /d/hsfbdhxeoo234asd823g={area}&jsdhf88j3njfw={department}
+    defaults: { _controller: CELiceoParaisoBundle:Administrator:showDetailDepartment}
+    
+ce_liceo_paraiso_new_personal:
+    path:     /personal_new/{area}
+    defaults: { _controller: CELiceoParaisoBundle:Administrator:newPersonal}
+    
+ce_liceo_paraiso_update_personal:
+    path:     /update_personal/{code}
+    defaults: { _controller: CELiceoParaisoBundle:Administrator:updatePersonal}
+    
+ce_liceo_paraiso_delete_personal_area:
+    path:     /delete/hgctg={area}&ytfvyhgc={codTeacher}
+    defaults: { _controller: CELiceoParaisoBundle:Administrator:deletePersonalOfArea}
+    
+ce_liceo_paraiso_services:
+    path:     /services/{codeArea}
+    defaults: { _controller: CELiceoParaisoBundle:Administrator:servicesOfArea}
+
+ce_liceo_paraiso_logout:
+    path:   /login_
+    defaults: { _controller: CELiceoParaisoBundle:Administrator:logout }
+    

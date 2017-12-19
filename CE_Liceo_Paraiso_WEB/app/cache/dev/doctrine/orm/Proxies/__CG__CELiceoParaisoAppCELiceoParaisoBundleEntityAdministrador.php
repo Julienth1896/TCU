@@ -64,10 +64,10 @@ class Administrador extends \CELiceoParaisoApp\CELiceoParaisoBundle\Entity\Admin
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return array('__isInitialized__', '' . "\0" . 'CELiceoParaisoApp\\CELiceoParaisoBundle\\Entity\\Administrador' . "\0" . 'codigo', '' . "\0" . 'CELiceoParaisoApp\\CELiceoParaisoBundle\\Entity\\Administrador' . "\0" . 'nombre', '' . "\0" . 'CELiceoParaisoApp\\CELiceoParaisoBundle\\Entity\\Administrador' . "\0" . 'primerApellido', '' . "\0" . 'CELiceoParaisoApp\\CELiceoParaisoBundle\\Entity\\Administrador' . "\0" . 'segundoApellido', '' . "\0" . 'CELiceoParaisoApp\\CELiceoParaisoBundle\\Entity\\Administrador' . "\0" . 'telefono', '' . "\0" . 'CELiceoParaisoApp\\CELiceoParaisoBundle\\Entity\\Administrador' . "\0" . 'corrreo', '' . "\0" . 'CELiceoParaisoApp\\CELiceoParaisoBundle\\Entity\\Administrador' . "\0" . 'tipoAdministrador');
+            return array('__isInitialized__', '' . "\0" . 'CELiceoParaisoApp\\CELiceoParaisoBundle\\Entity\\Administrador' . "\0" . 'codigo', '' . "\0" . 'CELiceoParaisoApp\\CELiceoParaisoBundle\\Entity\\Administrador' . "\0" . 'telefono', '' . "\0" . 'CELiceoParaisoApp\\CELiceoParaisoBundle\\Entity\\Administrador' . "\0" . 'codigoPersonal');
         }
 
-        return array('__isInitialized__', '' . "\0" . 'CELiceoParaisoApp\\CELiceoParaisoBundle\\Entity\\Administrador' . "\0" . 'codigo', '' . "\0" . 'CELiceoParaisoApp\\CELiceoParaisoBundle\\Entity\\Administrador' . "\0" . 'nombre', '' . "\0" . 'CELiceoParaisoApp\\CELiceoParaisoBundle\\Entity\\Administrador' . "\0" . 'primerApellido', '' . "\0" . 'CELiceoParaisoApp\\CELiceoParaisoBundle\\Entity\\Administrador' . "\0" . 'segundoApellido', '' . "\0" . 'CELiceoParaisoApp\\CELiceoParaisoBundle\\Entity\\Administrador' . "\0" . 'telefono', '' . "\0" . 'CELiceoParaisoApp\\CELiceoParaisoBundle\\Entity\\Administrador' . "\0" . 'corrreo', '' . "\0" . 'CELiceoParaisoApp\\CELiceoParaisoBundle\\Entity\\Administrador' . "\0" . 'tipoAdministrador');
+        return array('__isInitialized__', '' . "\0" . 'CELiceoParaisoApp\\CELiceoParaisoBundle\\Entity\\Administrador' . "\0" . 'codigo', '' . "\0" . 'CELiceoParaisoApp\\CELiceoParaisoBundle\\Entity\\Administrador' . "\0" . 'telefono', '' . "\0" . 'CELiceoParaisoApp\\CELiceoParaisoBundle\\Entity\\Administrador' . "\0" . 'codigoPersonal');
     }
 
     /**
@@ -191,72 +191,6 @@ class Administrador extends \CELiceoParaisoApp\CELiceoParaisoBundle\Entity\Admin
     /**
      * {@inheritDoc}
      */
-    public function setNombre($nombre)
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setNombre', array($nombre));
-
-        return parent::setNombre($nombre);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function getNombre()
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getNombre', array());
-
-        return parent::getNombre();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function setPrimerApellido($primerApellido)
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setPrimerApellido', array($primerApellido));
-
-        return parent::setPrimerApellido($primerApellido);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function getPrimerApellido()
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getPrimerApellido', array());
-
-        return parent::getPrimerApellido();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function setSegundoApellido($segundoApellido)
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setSegundoApellido', array($segundoApellido));
-
-        return parent::setSegundoApellido($segundoApellido);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function getSegundoApellido()
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getSegundoApellido', array());
-
-        return parent::getSegundoApellido();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
     public function setTelefono($telefono)
     {
 
@@ -279,45 +213,23 @@ class Administrador extends \CELiceoParaisoApp\CELiceoParaisoBundle\Entity\Admin
     /**
      * {@inheritDoc}
      */
-    public function setCorrreo($corrreo)
+    public function setCodigoPersonal(\CELiceoParaisoApp\CELiceoParaisoBundle\Entity\Personal $codigoPersonal = NULL)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCorrreo', array($corrreo));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCodigoPersonal', array($codigoPersonal));
 
-        return parent::setCorrreo($corrreo);
+        return parent::setCodigoPersonal($codigoPersonal);
     }
 
     /**
      * {@inheritDoc}
      */
-    public function getCorrreo()
+    public function getCodigoPersonal()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCorrreo', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCodigoPersonal', array());
 
-        return parent::getCorrreo();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function setTipoAdministrador(\CELiceoParaisoApp\CELiceoParaisoBundle\Entity\TipoAdministrador $tipoAdministrador = NULL)
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setTipoAdministrador', array($tipoAdministrador));
-
-        return parent::setTipoAdministrador($tipoAdministrador);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function getTipoAdministrador()
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getTipoAdministrador', array());
-
-        return parent::getTipoAdministrador();
+        return parent::getCodigoPersonal();
     }
 
 }

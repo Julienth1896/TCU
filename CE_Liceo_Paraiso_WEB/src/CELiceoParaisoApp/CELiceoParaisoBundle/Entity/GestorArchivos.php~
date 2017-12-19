@@ -1,0 +1,46 @@
+<?php
+
+namespace CELiceoParaisoApp\CELiceoParaisoBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * GestorArchivos
+ *
+ * @ORM\Table(name="gestor_archivos")
+ * @ORM\Entity
+ */
+class GestorArchivos
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="codigo", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $codigo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nombre", type="string", length=100, nullable=false)
+     */
+    private $nombre;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="docente", type="integer", nullable=false)
+     */
+    private $docente;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="departamento", type="integer", nullable=false)
+     */
+    private $departamento;
+
+
+}

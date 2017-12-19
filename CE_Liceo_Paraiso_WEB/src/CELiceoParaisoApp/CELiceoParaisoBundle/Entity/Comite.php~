@@ -1,0 +1,78 @@
+<?php
+
+namespace CELiceoParaisoApp\CELiceoParaisoBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Comite
+ *
+ * @ORM\Table(name="comite", indexes={@ORM\Index(name="institucion", columns={"institucion"})})
+ * @ORM\Entity
+ */
+class Comite
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="codigo", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $codigo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nombre", type="string", length=30, nullable=false)
+     */
+    private $nombre;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="descripcion", type="string", length=5000, nullable=false)
+     */
+    private $descripcion;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="estado", type="string", length=10, nullable=false)
+     */
+    private $estado;
+
+    /**
+     * @var \Institucion
+     *
+     * @ORM\ManyToOne(targetEntity="Institucion")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="institucion", referencedColumnName="codigo")
+     * })
+     */
+    private $institucion;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="Personal", inversedBy="comite")
+     * @ORM\JoinTable(name="personal_comite",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="comite", referencedColumnName="codigo")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="personal", referencedColumnName="codigo")
+     *   }
+     * )
+     */
+    private $personal;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->personal = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+}

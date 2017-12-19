@@ -125,49 +125,9 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array (  '_controller' => 'CELiceoParaisoApp\\CELiceoParaisoBundle\\Controller\\DefaultController::indexAction',  '_route' => 'ce_liceo_paraiso_homepage',);
         }
 
-        // ce_liceo_paraiso_description
-        if ($pathinfo === '/description') {
-            return array (  '_controller' => 'CELiceoParaisoApp\\CELiceoParaisoBundle\\Controller\\DefaultController::showDescriptionAction',  '_route' => 'ce_liceo_paraiso_description',);
-        }
-
-        // ce_liceo_paraiso_objectives
-        if ($pathinfo === '/objectives') {
-            return array (  '_controller' => 'CELiceoParaisoApp\\CELiceoParaisoBundle\\Controller\\DefaultController::showObjectivesAction',  '_route' => 'ce_liceo_paraiso_objectives',);
-        }
-
-        // ce_liceo_paraiso_vision
-        if ($pathinfo === '/vision') {
-            return array (  '_controller' => 'CELiceoParaisoApp\\CELiceoParaisoBundle\\Controller\\DefaultController::showVisionAction',  '_route' => 'ce_liceo_paraiso_vision',);
-        }
-
-        // ce_liceo_paraiso_mision
-        if ($pathinfo === '/mision') {
-            return array (  '_controller' => 'CELiceoParaisoApp\\CELiceoParaisoBundle\\Controller\\DefaultController::showMisionAction',  '_route' => 'ce_liceo_paraiso_mision',);
-        }
-
-        // ce_liceo_paraiso_managers
-        if ($pathinfo === '/information') {
-            return array (  '_controller' => 'CELiceoParaisoApp\\CELiceoParaisoBundle\\Controller\\DefaultController::showManagersAction',  '_route' => 'ce_liceo_paraiso_managers',);
-        }
-
-        // ce_liceo_paraiso_gallery
-        if ($pathinfo === '/gallery') {
-            return array (  '_controller' => 'CELiceoParaisoApp\\CELiceoParaisoBundle\\Controller\\DefaultController::showGalleryAction',  '_route' => 'ce_liceo_paraiso_gallery',);
-        }
-
-        // ce_liceo_paraiso_vocational
-        if ($pathinfo === '/vocational_area') {
-            return array (  '_controller' => 'CELiceoParaisoApp\\CELiceoParaisoBundle\\Controller\\AreaController::showVocationalAreaAction',  '_route' => 'ce_liceo_paraiso_vocational',);
-        }
-
-        // ce_liceo_paraiso_nocturnal
-        if ($pathinfo === '/nocturnal_area') {
-            return array (  '_controller' => 'CELiceoParaisoApp\\CELiceoParaisoBundle\\Controller\\AreaController::showNocturnalAreaAction',  '_route' => 'ce_liceo_paraiso_nocturnal',);
-        }
-
-        // ce_liceo_paraiso_diurnal
-        if ($pathinfo === '/diurnal_area') {
-            return array (  '_controller' => 'CELiceoParaisoApp\\CELiceoParaisoBundle\\Controller\\AreaController::showDiurnalAreaAction',  '_route' => 'ce_liceo_paraiso_diurnal',);
+        // ce_liceo_paraiso_about_us
+        if ($pathinfo === '/about_us') {
+            return array (  '_controller' => 'CELiceoParaisoApp\\CELiceoParaisoBundle\\Controller\\DefaultController::aboutUsAction',  '_route' => 'ce_liceo_paraiso_about_us',);
         }
 
         // ce_liceo_paraiso_ubication
@@ -175,9 +135,136 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array (  '_controller' => 'CELiceoParaisoApp\\CELiceoParaisoBundle\\Controller\\DefaultController::showUbicationAction',  '_route' => 'ce_liceo_paraiso_ubication',);
         }
 
+        // ce_liceo_paraiso_credits
+        if ($pathinfo === '/credits') {
+            return array (  '_controller' => 'CELiceoParaisoApp\\CELiceoParaisoBundle\\Controller\\DefaultController::showCreditsAction',  '_route' => 'ce_liceo_paraiso_credits',);
+        }
+
         // ce_liceo_paraiso_login
-        if ($pathinfo === '/singup') {
+        if ($pathinfo === '/login') {
             return array (  '_controller' => 'CELiceoParaisoApp\\CELiceoParaisoBundle\\Controller\\AdministratorController::loginAction',  '_route' => 'ce_liceo_paraiso_login',);
+        }
+
+        // ce_liceo_paraiso_check_user
+        if ($pathinfo === '/dashboard') {
+            return array (  '_controller' => 'CELiceoParaisoApp\\CELiceoParaisoBundle\\Controller\\AdministratorController::checkUserAction',  '_route' => 'ce_liceo_paraiso_check_user',);
+        }
+
+        // ce_liceo_paraiso_change_pass
+        if ($pathinfo === '/pass') {
+            return array (  '_controller' => 'CELiceoParaisoApp\\CELiceoParaisoBundle\\Controller\\AdministratorController::changePassAction',  '_route' => 'ce_liceo_paraiso_change_pass',);
+        }
+
+        // ce_liceo_paraiso_change_pass_form
+        if ($pathinfo === '/form') {
+            return array (  '_controller' => 'CELiceoParaisoApp\\CELiceoParaisoBundle\\Controller\\AdministratorController::changePassFormAction',  '_route' => 'ce_liceo_paraiso_change_pass_form',);
+        }
+
+        // ce_liceo_paraiso_dashboard
+        if ($pathinfo === '/administrator') {
+            return array (  '_controller' => 'CELiceoParaisoApp\\CELiceoParaisoBundle\\Controller\\AdministratorController::homeAdminAction',  '_route' => 'ce_liceo_paraiso_dashboard',);
+        }
+
+        if (0 === strpos($pathinfo, '/institution')) {
+            // ce_liceo_paraiso_institution_admin
+            if ($pathinfo === '/institution') {
+                return array (  '_controller' => 'CELiceoParaisoApp\\CELiceoParaisoBundle\\Controller\\AdministratorController::institutionAction',  '_route' => 'ce_liceo_paraiso_institution_admin',);
+            }
+
+            if (0 === strpos($pathinfo, '/institution_')) {
+                // ce_liceo_paraiso_institution_history
+                if ($pathinfo === '/institution_history') {
+                    return array (  '_controller' => 'CELiceoParaisoApp\\CELiceoParaisoBundle\\Controller\\AdministratorController::updateHistoryAction',  '_route' => 'ce_liceo_paraiso_institution_history',);
+                }
+
+                // ce_liceo_paraiso_institution_vision
+                if ($pathinfo === '/institution_vision') {
+                    return array (  '_controller' => 'CELiceoParaisoApp\\CELiceoParaisoBundle\\Controller\\AdministratorController::updateVisionAction',  '_route' => 'ce_liceo_paraiso_institution_vision',);
+                }
+
+                if (0 === strpos($pathinfo, '/institution_m')) {
+                    // ce_liceo_paraiso_institution_mision
+                    if ($pathinfo === '/institution_mision') {
+                        return array (  '_controller' => 'CELiceoParaisoApp\\CELiceoParaisoBundle\\Controller\\AdministratorController::updateMisionAction',  '_route' => 'ce_liceo_paraiso_institution_mision',);
+                    }
+
+                    // ce_liceo_paraiso_institution_management
+                    if ($pathinfo === '/institution_management') {
+                        return array (  '_controller' => 'CELiceoParaisoApp\\CELiceoParaisoBundle\\Controller\\AdministratorController::updateManagementAction',  '_route' => 'ce_liceo_paraiso_institution_management',);
+                    }
+
+                }
+
+            }
+
+        }
+
+        // ce_liceo_paraiso_area_nocturn
+        if ($pathinfo === '/area_nocturn') {
+            return array (  '_controller' => 'CELiceoParaisoApp\\CELiceoParaisoBundle\\Controller\\AdministratorController::areaNocturnAction',  '_route' => 'ce_liceo_paraiso_area_nocturn',);
+        }
+
+        // ce_liceo_paraiso_plan_national
+        if ($pathinfo === '/plan_national') {
+            return array (  '_controller' => 'CELiceoParaisoApp\\CELiceoParaisoBundle\\Controller\\AdministratorController::planNationalAction',  '_route' => 'ce_liceo_paraiso_plan_national',);
+        }
+
+        // ce_liceo_paraiso_responsable_area
+        if (0 === strpos($pathinfo, '/area') && preg_match('#^/area/(?P<code>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'ce_liceo_paraiso_responsable_area')), array (  '_controller' => 'CELiceoParaisoApp\\CELiceoParaisoBundle\\Controller\\AdministratorController::responsableAreaAction',));
+        }
+
+        if (0 === strpos($pathinfo, '/de')) {
+            // ce_liceo_paraiso_description_area
+            if (0 === strpos($pathinfo, '/description_area') && preg_match('#^/description_area/(?P<codeArea>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'ce_liceo_paraiso_description_area')), array (  '_controller' => 'CELiceoParaisoApp\\CELiceoParaisoBundle\\Controller\\AdministratorController::descriptionAreaAction',));
+            }
+
+            // ce_liceo_paraiso_departaments
+            if (0 === strpos($pathinfo, '/departaments') && preg_match('#^/departaments/(?P<area>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'ce_liceo_paraiso_departaments')), array (  '_controller' => 'CELiceoParaisoApp\\CELiceoParaisoBundle\\Controller\\AdministratorController::showDepartamentsOfAreaAction',));
+            }
+
+        }
+
+        // ce_liceo_paraiso_add_department
+        if (0 === strpos($pathinfo, '/new_department') && preg_match('#^/new_department/(?P<code>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'ce_liceo_paraiso_add_department')), array (  '_controller' => 'CELiceoParaisoApp\\CELiceoParaisoBundle\\Controller\\AdministratorController::addDepartmentAction',));
+        }
+
+        // ce_liceo_paraiso_show_personal
+        if (0 === strpos($pathinfo, '/personal') && preg_match('#^/personal/(?P<area>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'ce_liceo_paraiso_show_personal')), array (  '_controller' => 'CELiceoParaisoApp\\CELiceoParaisoBundle\\Controller\\AdministratorController::showPersonalOfAreaAction',));
+        }
+
+        // ce_liceo_paraiso_detail_department
+        if (0 === strpos($pathinfo, '/d/hsfbdhxeoo234asd823g') && preg_match('#^/d/hsfbdhxeoo234asd823g\\=(?P<area>[^/]+)&jsdhf88j3njfw\\=(?P<department>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'ce_liceo_paraiso_detail_department')), array (  '_controller' => 'CELiceoParaisoApp\\CELiceoParaisoBundle\\Controller\\AdministratorController::showDetailDepartmentAction',));
+        }
+
+        // ce_liceo_paraiso_new_personal
+        if (0 === strpos($pathinfo, '/personal_new') && preg_match('#^/personal_new/(?P<area>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'ce_liceo_paraiso_new_personal')), array (  '_controller' => 'CELiceoParaisoApp\\CELiceoParaisoBundle\\Controller\\AdministratorController::newPersonalAction',));
+        }
+
+        // ce_liceo_paraiso_update_personal
+        if (0 === strpos($pathinfo, '/update_personal') && preg_match('#^/update_personal/(?P<code>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'ce_liceo_paraiso_update_personal')), array (  '_controller' => 'CELiceoParaisoApp\\CELiceoParaisoBundle\\Controller\\AdministratorController::updatePersonalAction',));
+        }
+
+        // ce_liceo_paraiso_delete_personal_area
+        if (0 === strpos($pathinfo, '/delete/hgctg') && preg_match('#^/delete/hgctg\\=(?P<area>[^/]+)&ytfvyhgc\\=(?P<codTeacher>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'ce_liceo_paraiso_delete_personal_area')), array (  '_controller' => 'CELiceoParaisoApp\\CELiceoParaisoBundle\\Controller\\AdministratorController::deletePersonalOfAreaAction',));
+        }
+
+        // ce_liceo_paraiso_services
+        if (0 === strpos($pathinfo, '/services') && preg_match('#^/services/(?P<codeArea>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'ce_liceo_paraiso_services')), array (  '_controller' => 'CELiceoParaisoApp\\CELiceoParaisoBundle\\Controller\\AdministratorController::servicesOfAreaAction',));
+        }
+
+        // ce_liceo_paraiso_logout
+        if ($pathinfo === '/login_') {
+            return array (  '_controller' => 'CELiceoParaisoApp\\CELiceoParaisoBundle\\Controller\\AdministratorController::logoutAction',  '_route' => 'ce_liceo_paraiso_logout',);
         }
 
         // homepage

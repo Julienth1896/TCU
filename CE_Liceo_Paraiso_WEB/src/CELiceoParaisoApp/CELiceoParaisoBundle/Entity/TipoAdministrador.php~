@@ -29,4 +29,37 @@ class TipoAdministrador
     private $nombre;
 
 
+
+    /**
+     * Get codigo
+     *
+     * @return integer 
+     */
+    public function getCodigo()
+    {
+        return $this->codigo;
+    }
+
+    /**
+     * Set nombre
+     *
+     * @param string $nombre
+     * @return TipoAdministrador
+     */
+    public function setNombre($nombre)
+    {
+        $this->nombre = $nombre;
+
+        return $this;
+    }
+
+    /**
+     * Get nombre
+     *
+     * @return string 
+     */
+    public function getNombre()
+    {
+        return $this->nombre;
+    }
 }

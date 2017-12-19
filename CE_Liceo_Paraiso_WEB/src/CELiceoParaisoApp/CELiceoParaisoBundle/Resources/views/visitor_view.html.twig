@@ -10,6 +10,7 @@
         <link href="{{asset('bundles/ce_liceo_paraiso_app/css/styles.css') }}" rel="stylesheet" type="text/css"/>
         <script type="text/javascript" src="{{asset('bundles/ce_liceo_paraiso_app/js/mapjs.js') }}"></script>
         <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjY6bb7os43WpETqE-dSKsGkLF1wTzqYk&callback"></script>
+        <script type="text/javascript" src="{{asset('bundles/ce_liceo_paraiso_app/js/functions.js') }}"></script>
     </head>
     <body onload="codeAddress();" >
         <div class="jumbotron">
@@ -41,46 +42,40 @@
                             </a>
                         </li>
                         <li>
-                            <a href="{{path('ce_liceo_paraiso_vocational')}}">
-                                <span class="glyphicon glyphicon-education"></span> Área Vocacional
+                            <a href="">
+                                <span class="glyphicon glyphicon-picture"></span> Galería
                             </a>
                         </li>
                         <li>
-                            <a href="{{path('ce_liceo_paraiso_diurnal')}}">
-                                <span class="glyphicon glyphicon-education"></span> Área Diurna
+                            <a href="{{ path('ce_liceo_paraiso_ubication') }}">
+                                <span class="glyphicon glyphicon-map-marker"></span> Ubucación
                             </a>
                         </li>
-                        <li>
-                            <a href="{{path('ce_liceo_paraiso_nocturnal')}}">
-                                <span class="glyphicon glyphicon-education"></span> Área Nocturna
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{path('ce_liceo_paraiso_ubication')}}">
-                                <span class="glyphicon glyphicon-map-marker"></span> Ubicación
-                            </a>
-                        </li>
-                    </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="{{path('ce_liceo_paraiso_login')}}">
-                                <span class="glyphicon glyphicon-log-in"></span> Login</a>
-                        </li>
-                    </ul>
+                    </ul>          
                 </div>
             </div>
         </nav>
 
-        <div class="container-fluid text-center">    
+        <div class="container-fluid">    
             <div class="row content">
-                <div class="col-sm-3 sidenav">
+                <aside class="col-sm-2">
+                    <br>
                     {% block submenu %} {% endblock %}
-                </div>
-                <div class="col-sm-7 text-left"> 
-                    {% block content %}{% endblock %}
-                </div>
-                <div class="col-sm-3 sidenav">
-                    {% block images %} {% endblock %}
-                </div>
+
+                    <div class="panel panel-primary hidden-xs">
+                        <div class="panel-heading">Enlaces de Interes</div>
+                        <div class="panel-body list-group">
+                            <a href="http://e-colelp.blogspot.com/" class="list-group-item">Revista E-Cole</a>
+                            <a href="http://profe-conta-lp.blogspot.com/" class="list-group-item">Contabilidad</a>
+                            <a href="http://lp-turismo.blogspot.com/" class="list-group-item">Turismo</a>
+                            <a href="http://fisicaliceoparaiso.blogspot.com/" class="list-group-item">Física</a>
+                        </div>
+                    </div>
+                    <br>
+                </aside>
+                <div class="col-sm-10 text-left align-center"> 
+                    {% block content %} {% endblock %}
+                </div>   
             </div>
         </div>
 
@@ -90,5 +85,5 @@
         </footer>
 
     </body>
-    {% block scripts %}{% endblock %}
+    {% block scripts %} {% endblock %}
 </html>

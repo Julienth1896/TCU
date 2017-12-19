@@ -1,28 +1,213 @@
 {% extends "CELiceoParaisoBundle::visitor_view.html.twig" %}
 {% block submenu %}
-    <p><a href="{{path('ce_liceo_paraiso_homepage')}}">Historia</a></p>
-    <p><a href="{{path('ce_liceo_paraiso_description')}}">Descripción</a></p>
-    <p><a href="{{path('ce_liceo_paraiso_objectives')}}">Objetivos</a></p>
-    <p><a href="{{path('ce_liceo_paraiso_mision')}}">Misión</a></p>
-    <p><a href="{{path('ce_liceo_paraiso_vision')}}">Visión</a></p>
-    <p><a href="{{path('ce_liceo_paraiso_managers')}}">Encargados</a></p>
-    <p><a href="{{path('ce_liceo_paraiso_gallery')}}">Galería</a></p>
+    {% if information != 'home' %}
+        <div class="panel panel-primary">
+            <div class="panel-heading">Menú</div>
+            <div class="panel-body list-group">
+                <a href="{{path('ce_liceo_paraiso_about_us')}}" class="list-group-item">¿Quienes Somos?</a>
+                <a href="" class="list-group-item">Modalidad Nocturna</a>
+                <a href="" class="list-group-item">Plan Nacional</a>
+                <a href="" class="list-group-item">Departamentos</a>
+                <a href="" class="list-group-item">Departamento Administrativo</a>
+                <a href="" class="list-group-item">Comites</a>
+                <a href="" class="list-group-item">Servicios</a>
+                <a href="" class="list-group-item">Clubs</a>
+                <a href="{{ path('ce_liceo_paraiso_credits') }}" class="list-group-item">Créditos</a>
+            </div>
+        </div>
+    {% endif %}
 {% endblock %}
 
-{% block content %}
-    <h1 id="title">{{title}}</h1>
-    {% if information == 'map'%}
-        <p class="text-justify" id="address">{{institution.getUbicacion()}}</p>
-        <div id="map_canvas" style="width: 650px; height: 300px; margin-left: 50px;"></div>
+{% block content %}    
+    <hr>
+    <div id="content">
+        <h1 id="title"><strong class="titulo">{{title}}</strong></h1>
         <hr>
-        <h2>Área Administrativa</h2>
-        <p class="text-justify">{{institution.getEncargados()}}</p>
-    {% endif %}
-    {% if information == 'general'%}
-        <div class="text-justify">{{institution}}</div>
-    {% endif %}
+        {% if information == 'map'%}
+            <p class="text-justify" id="address">{{institution.getUbicacion()}}</p>
+            <div id="map_canvas" style="width: 650px; height: 300px; margin-left: 50px;"></div>
+            <hr>
+        {% endif %}
+        {% if information == 'home'%}
+            <div class="col-sm-4">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">¿QUIENES SOMOS?</div>
+                    <div class="panel-body">
+                        <a role="button" href="{{path('ce_liceo_paraiso_about_us')}}">
+                            <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+                        </a>
+                    </div>
+                    <div class="panel-footer">Metas del colegio</div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="panel panel-success">
+                    <div class="panel-heading">MODALIDAD NOCTURNA</div>
+                    <div class="panel-body">
+                        <a href="#">
+                            <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+                        </a>
+                    </div>
+                    <div class="panel-footer">Descripción</div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="panel panel-danger">
+                    <div class="panel-heading">PLAN NACIONAL</div>
+                    <div class="panel-body">
+                        <a href="#">
+                            <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+                        </a>
+                    </div>
+                    <div class="panel-footer">Descripción</div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="panel panel-danger">
+                    <div class="panel-heading">DEPARTAMENTOS Y DOCENTES</div>
+                    <div class="panel-body">
+                        <a href="">
+                            <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+                        </a>
+                    </div>
+                    <div class="panel-footer">Descripción</div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">DEPARTAMENTO ADMINISTRATIVO</div>
+                    <div class="panel-body">
+                        <a href="#">
+                            <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+                        </a>
+                    </div>
+                    <div class="panel-footer">Personal Administrativo del colegio</div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="panel panel-success">
+                    <div class="panel-heading">COMITES</div>
+                    <div class="panel-body">
+                        <a href="{{ path('ce_liceo_paraiso_ubication') }}">
+                            <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+                        </a>
+                    </div>
+                    <div class="panel-footer">Descripción</div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="panel panel-success">
+                    <div class="panel-heading">SERVICIOS</div>
+                    <div class="panel-body">
+                        <a href="">
+                            <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+                        </a>
+                    </div>
+                    <div class="panel-footer">Decripción</div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="panel panel-danger">
+                    <div class="panel-heading">CLUBS</div>
+                    <div class="panel-body">
+                        <a href="">
+                            <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+                        </a>
+                    </div>
+                    <div class="panel-footer">Descripción</div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">CRÉDITOS</div>
+                    <div class="panel-body">
+                        <a href="{{ path('ce_liceo_paraiso_credits') }}">
+                            <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+                        </a>
+                    </div>
+                    <div class="panel-footer">Descripción</div>
+                </div>
+            </div>
+            <br>
+        {% endif %}
+        {% if information == 'about' %}
+            <div class="col-sm-12 text-left">
+                <div class="row">
+                    <h4 class="subtitle">Historia</h4>
+                    <blockquote><p class="text-justify">{{institution.history}}</p></blockquote>
+                </div>
+                <div class="row">
+                    <h4 class="subtitle">Visión</h4>
+                    <blockquote><p class="text-justify">{{institution.vision}}</p></blockquote>
+                </div>
+                <div class="row">
+                    <h4 class="subtitle">Misión</h4>
+                    <blockquote><p class="text-justify">{{institution.mision}}</p></blockquote>
+                </div>
+            </div>
+        {% endif %}
+        {% if information == 'credits' %}
+            <blockquote>
+                <p class="text-justify">
+                    Este sitio fue creado por estudiantes de Informática Empresarial del Recinto de Paraíso de la Universidad 
+                    de Costa Rica como parte del desarrollo del Trabajo Comunal Universitario XXX Nombre del TCU.
+                </p>
+            </blockquote>
+
+            <div class="col-md-4">
+                <div class="member_detail">
+                    <div class="member_img">
+                        <img src="{{ asset('bundles/ce_liceo_paraiso_app/img/member.png') }}" width="100%">
+                    </div>
+                    <div class="member_name">
+                        <h5>Julienth Olivas Padilla</h5>
+                        <p>Estudiante Informática Empresarial</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="member_detail">
+                    <div class="member_img">
+                        <img src="{{ asset('bundles/ce_liceo_paraiso_app/img/ucr.png') }}" width="100%">
+                    </div>
+                    <div class="member_name">
+                        <h5>Universidad de Costa Rica</h5>
+                        <p>Sede Atlántico, Recinto Paraíso.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="member_detail">
+                    <div class="member_img">
+                        <img src="{{ asset('bundles/ce_liceo_paraiso_app/img/member.png') }}" width="100%">
+                    </div>
+                    <div class="member_name">
+                        <h5>Jacqueline Navarro Artavia</h5>
+                        <p>Estudiante Informática Empresarial</p>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+        {% if information == 'departments' %}
+            
+        {% endif %}
+        {% if information == 'administrative' %}
+
+        {% endif %}
+        {% if information == 'clubs' %}
+
+        {% endif %}
+        {% if information == 'services' %}
+
+        {% endif %}
+        {% if information == 'committees' %}
+
+        {% endif %}
+    </div>
 {% endblock %}
 
-{% block images %}
-    <h1>IMÁGENES</h1>
+{% block scripts %}
+    <script type="text/javascript">
+        
+    </script>
 {% endblock %}

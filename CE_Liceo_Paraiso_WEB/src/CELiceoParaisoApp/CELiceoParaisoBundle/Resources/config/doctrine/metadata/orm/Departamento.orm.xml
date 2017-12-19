@@ -14,13 +14,13 @@
         <join-column name="administrador" referenced-column-name="codigo"/>
       </join-columns>
     </many-to-one>
-    <many-to-many field="codigoDocente" target-entity="Docente" inversed-by="codigoDepartamento">
-      <join-table name="docente_departamento">
+    <many-to-many field="codigoPersonal" target-entity="Personal" inversed-by="codigoDepartamento">
+      <join-table name="personal_departamento">
         <join-columns>
           <join-column name="codigo_departamento" referenced-column-name="codigo"/>
         </join-columns>
         <inverse-join-columns>
-          <join-column name="codigo_docente" referenced-column-name="codigo"/>
+          <join-column name="codigo_personal" referenced-column-name="codigo"/>
         </inverse-join-columns>
       </join-table>
     </many-to-many>

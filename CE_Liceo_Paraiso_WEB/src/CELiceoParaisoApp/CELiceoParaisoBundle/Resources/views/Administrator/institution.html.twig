@@ -1,0 +1,253 @@
+{% extends "CELiceoParaisoBundle::administration_view.html.twig" %}
+
+{% block menu %}
+    <li class="active">
+        <a href="{{ path('ce_liceo_paraiso_institution_admin')}}">
+            <i class="ti-panel"></i>
+            <p>Institución</p>
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('ce_liceo_paraiso_area_nocturn') }}">
+            <i class="ti-view-list-alt"></i>
+            <p>Área Nocturna</p>
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('ce_liceo_paraiso_plan_national') }}">
+            <i class="ti-view-list-alt"></i>
+            <p>Plan Nacional</p>
+        </a>
+    </li>
+    <li>
+        <a href="#">
+            <i class="ti-view-list-alt"></i>
+            <p>Personal</p>
+        </a>
+    </li>
+    <li>
+        <a href="#">
+            <i class="ti-view-list-alt"></i>
+            <p>Departamentos</p>
+        </a>
+    </li>
+    <li>
+        <a href="#">
+            <i class="ti-view-list-alt"></i>
+            <p>Comités</p>
+        </a>
+    </li>
+    <li>
+        <a href="#">
+            <i class="ti-view-list-alt"></i>
+            <p>Clubs</p>
+        </a>
+    </li>
+    <li>
+        <a href="#">
+            <i class="ti-view-list-alt"></i>
+            <p>Servicios</p>
+        </a>
+    </li>
+{% endblock %}
+{% block title %} {{title}} {% endblock %}
+
+{% block content %}  
+    <div class="row">
+        <div class="nav-tabs-navigation">
+            <div class="nav-tabs-wrapper">
+                <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
+                    <li class="active"><a href="#history" data-toggle="tab">Historia</a></li>
+                    <li><a href="#vision" data-toggle="tab">Visión</a></li>
+                    <li><a href="#mision" data-toggle="tab">Mision</a></li>
+                    <li><a href="#manager" data-toggle="tab">Encargados</a></li>
+                    <li><a href="#ubication" data-toggle="tab" onclick="codeAddress();">Ubicación</a></li>
+                    <li><a href="#gallery" data-toggle="tab">Galería</a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="my-tab-content" class="tab-content text-right">
+            {% if alert is defined %}
+                {% if alert == 'success' %}
+                    <div class="alert alert-success text-center" id="alert">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        <strong>
+                            <img src="{{asset('bundles/ce_liceo_paraiso_app/img/img.png')}}"/> 
+                            Informaci&oacute;n actualizada
+                        </strong>
+                    </div>
+                {% endif %}
+                {% if alert == 'error' %}
+                    <div class="alert alert-warning text-center" id="alert">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        <strong>
+                            <img src="{{asset('bundles/ce_liceo_paraiso_app/img/cancel.png')}}"/> 
+                            Ha ocurrido un error intentelo m&aacute;s tarde!
+                        </strong>
+                    </div>
+                {% endif %}
+            {% endif %}
+            <div class="tab-pane active" id="history">
+                <legend></legend>
+                <blockquote>
+                    <p class="text-justify text-info" style="font-style: normal;">
+                        {{institution.getHistoria()|nl2br}}
+                    </p>
+                </blockquote>
+                <br>
+                <a class="btn btn-round btn-fill btn-success" data-target="#modal" data-toggle="modal">Actualizar</a>
+            </div>
+
+            <div class="tab-pane" id="vision">
+                <legend></legend>
+                <blockquote>
+                    <p class="text-justify text-info" style="font-style: normal;">
+                        {{institution.getVision()|nl2br}}
+                    </p>
+                </blockquote>
+                <br>
+                <a class="btn btn-round btn-fill btn-success" data-target="#modal2" data-toggle="modal">Actualizar</a>
+            </div>
+            <div class="tab-pane" id="mision">
+                <legend></legend>
+                <blockquote>
+                    <p class="text-justify text-info" style="font-style: normal;">
+                        {{institution.getMision()|nl2br}}
+                    </p>
+                </blockquote>
+                <br>
+                <a class="btn btn-round btn-fill btn-success" data-target="#modal3" data-toggle="modal">Actualizar</a>
+            </div>
+            <div class="tab-pane" id="manager">
+                <legend></legend>
+                <h4 style="text-align: left;">Encargados:</h4>
+                <blockquote>
+                    <p class="text-justify text-info" style="font-style: normal;">
+                        {{institution.getEncargados()|nl2br}}
+                    </p>
+                </blockquote>
+                <hr>
+                <h4 style="text-align: left;">Teléfono(s):</h4>
+                <blockquote>
+                    <p class="text-justify text-info" style="font-style: normal;">
+                        {{institution.getTelefono()|nl2br}}
+                    </p>
+                </blockquote>
+                <br>
+                <a class="btn btn-round btn-fill btn-success" data-target="#modal4" data-toggle="modal">Actualizar</a>
+            </div>
+            <div class="tab-pane" id="ubication">
+                <legend></legend>
+                <p class="text-justify" id="address">{{institution.getUbicacion()}}</p>
+                <blockquote>
+                    <div id="map_canvas" style="width: 90%; height: 300px; margin-left: 50px;"></div>
+                    <hr>
+                </blockquote>
+                <br>
+            </div>
+            <div class="tab-pane" id="gallery">
+                <legend></legend>
+                <blockquote>
+                    <p class="text-justify">Cargar imágenes</p>
+                    <hr>
+                </blockquote>
+                <br>
+                <a class="btn btn-round btn-fill btn-success" data-target="" data-toggle="modal">Agregar</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block modals %}
+    <div class="modal fade" id="modal" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header alert alert-info">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">
+                        <strong>Historia</strong>
+                    </h4>
+                </div>
+                <form action="{{ path('ce_liceo_paraiso_institution_history') }}" method="post" class="form-horizontal">
+                    <div class="modal-body">
+                        <textarea class="form-control" id="history" name="history" rows="8" required>{{institution.getHistoria()}}</textarea>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Actualizar</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="modal2" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header alert alert-info">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">
+                        <strong>Visión</strong>
+                    </h4>
+                </div>
+                <form action="{{ path('ce_liceo_paraiso_institution_vision') }}" method="post" class="form-horizontal">
+                    <div class="modal-body">
+                        <textarea class="form-control" id="vision" name="vision" rows="8" required>{{institution.getVision()}}</textarea>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Actualizar</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="modal3" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header alert alert-info">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">
+                        <strong>Misión</strong>
+                    </h4>
+                </div>
+                <form action="{{ path('ce_liceo_paraiso_institution_mision') }}" method="post" class="form-horizontal">
+                    <div class="modal-body">
+                        <textarea class="form-control" id="mision" name="mision" rows="8" required>{{institution.getMision()}}</textarea>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Actualizar</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="modal4" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header alert alert-info">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">
+                        <strong>Información General</strong>
+                    </h4>
+                </div>
+                <form action="{{ path('ce_liceo_paraiso_institution_management') }}" method="post" class="form-horizontal">
+                    <div class="modal-body">
+                        <label class="control-label col-md-3" for="managers">Encargados:</label>
+                        <textarea class="form-control" id="managers" name="managers" rows="8" required>{{institution.getEncargados()}}</textarea>
+                        <label class="control-label col-md-3" for="telephone">Teléfono(s):</label>
+                        <textarea class="form-control" id="telephone" name="telephone" rows="2" required>{{institution.getTelefono()}}</textarea>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Actualizar</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

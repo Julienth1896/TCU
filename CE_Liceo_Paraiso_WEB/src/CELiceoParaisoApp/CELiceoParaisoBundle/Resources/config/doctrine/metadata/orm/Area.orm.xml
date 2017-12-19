@@ -44,5 +44,15 @@
         </inverse-join-columns>
       </join-table>
     </many-to-many>
+    <many-to-many field="personal" target-entity="Personal" inversed-by="area">
+      <join-table name="area_personal">
+        <join-columns>
+          <join-column name="area" referenced-column-name="codigo"/>
+        </join-columns>
+        <inverse-join-columns>
+          <join-column name="personal" referenced-column-name="codigo"/>
+        </inverse-join-columns>
+      </join-table>
+    </many-to-many>
   </entity>
 </doctrine-mapping>

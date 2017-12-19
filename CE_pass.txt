@@ -1,0 +1,13 @@
+//gmail
+usuario: ce.liceo.paraiso@gmail.com
+clave: paraiso.2016
+
+//joomla
+usuario: administrador
+clave: CEparaiso.2016
+
+//hostinger gratuito
+dominio: ceparaiso.hol.es
+usuario ftp: u405809870
+contraseña ftp: ••••••••••
+IP servidor: 31.170.167.195

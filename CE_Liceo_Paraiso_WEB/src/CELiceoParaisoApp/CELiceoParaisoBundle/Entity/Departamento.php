@@ -55,17 +55,17 @@ class Departamento
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="Docente", inversedBy="codigoDepartamento")
-     * @ORM\JoinTable(name="docente_departamento",
+     * @ORM\ManyToMany(targetEntity="Personal", inversedBy="codigoDepartamento")
+     * @ORM\JoinTable(name="personal_departamento",
      *   joinColumns={
      *     @ORM\JoinColumn(name="codigo_departamento", referencedColumnName="codigo")
      *   },
      *   inverseJoinColumns={
-     *     @ORM\JoinColumn(name="codigo_docente", referencedColumnName="codigo")
+     *     @ORM\JoinColumn(name="codigo_personal", referencedColumnName="codigo")
      *   }
      * )
      */
-    private $codigoDocente;
+    private $codigoPersonal;
 
     /**
      * Constructor
@@ -73,7 +73,7 @@ class Departamento
     public function __construct()
     {
         $this->area = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->codigoDocente = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->codigoPersonal = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
 
@@ -190,35 +190,35 @@ class Departamento
     }
 
     /**
-     * Add codigoDocente
+     * Add codigoPersonal
      *
-     * @param \CELiceoParaisoApp\CELiceoParaisoBundle\Entity\Docente $codigoDocente
+     * @param \CELiceoParaisoApp\CELiceoParaisoBundle\Entity\Personal $codigoPersonal
      * @return Departamento
      */
-    public function addCodigoDocente(\CELiceoParaisoApp\CELiceoParaisoBundle\Entity\Docente $codigoDocente)
+    public function addCodigoPersonal(\CELiceoParaisoApp\CELiceoParaisoBundle\Entity\Personal $codigoPersonal)
     {
-        $this->codigoDocente[] = $codigoDocente;
+        $this->codigoPersonal[] = $codigoPersonal;
 
         return $this;
     }
 
     /**
-     * Remove codigoDocente
+     * Remove codigoPersonal
      *
-     * @param \CELiceoParaisoApp\CELiceoParaisoBundle\Entity\Docente $codigoDocente
+     * @param \CELiceoParaisoApp\CELiceoParaisoBundle\Entity\Personal $codigoPersonal
      */
-    public function removeCodigoDocente(\CELiceoParaisoApp\CELiceoParaisoBundle\Entity\Docente $codigoDocente)
+    public function removeCodigoPersonal(\CELiceoParaisoApp\CELiceoParaisoBundle\Entity\Personal $codigoPersonal)
     {
-        $this->codigoDocente->removeElement($codigoDocente);
+        $this->codigoPersonal->removeElement($codigoPersonal);
     }
 
     /**
-     * Get codigoDocente
+     * Get codigoPersonal
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getCodigoDocente()
+    public function getCodigoPersonal()
     {
-        return $this->codigoDocente;
+        return $this->codigoPersonal;
     }
 }

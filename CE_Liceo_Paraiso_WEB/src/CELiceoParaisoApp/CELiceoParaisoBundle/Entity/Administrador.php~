@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Administrador
  *
- * @ORM\Table(name="administrador", indexes={@ORM\Index(name="tipo_administrador", columns={"tipo_administrador"})})
+ * @ORM\Table(name="administrador", indexes={@ORM\Index(name="codigo_personal", columns={"codigo_personal"})})
  * @ORM\Entity
  */
 class Administrador
@@ -24,47 +24,19 @@ class Administrador
     /**
      * @var string
      *
-     * @ORM\Column(name="nombre", type="string", length=50, nullable=false)
-     */
-    private $nombre;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="primer_apellido", type="string", length=30, nullable=false)
-     */
-    private $primerApellido;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="segundo_apellido", type="string", length=30, nullable=false)
-     */
-    private $segundoApellido;
-
-    /**
-     * @var string
-     *
      * @ORM\Column(name="telefono", type="string", length=10, nullable=false)
      */
     private $telefono;
 
     /**
-     * @var string
+     * @var \Personal
      *
-     * @ORM\Column(name="corrreo", type="string", length=40, nullable=false)
-     */
-    private $corrreo;
-
-    /**
-     * @var \TipoAdministrador
-     *
-     * @ORM\ManyToOne(targetEntity="TipoAdministrador")
+     * @ORM\ManyToOne(targetEntity="Personal")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="tipo_administrador", referencedColumnName="codigo")
+     *   @ORM\JoinColumn(name="codigo_personal", referencedColumnName="codigo")
      * })
      */
-    private $tipoAdministrador;
+    private $codigoPersonal;
 
 
 }

@@ -3,10 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/TCU/CE_Liceo_Paraiso_WEB/src/CELiceoParaisoApp/CELiceoParaisoBundle/Resources/views/Default/area_view.html.twig</file>
-            <file>file:/C:/xampp/htdocs/TCU/CE_Liceo_Paraiso_WEB/src/CELiceoParaisoApp/CELiceoParaisoBundle/Controller/AreaController.php</file>
-            <file>file:/C:/xampp/htdocs/TCU/CE_Liceo_Paraiso_WEB/src/CELiceoParaisoApp/CELiceoParaisoBundle/Resources/views/visitor_view.html.twig</file>
+            <file>file:/C:/xampp/htdocs/TCU/CE_Liceo_Paraiso_WEB/src/CELiceoParaisoApp/CELiceoParaisoBundle/Resources/views/Administrator/section.html.twig</file>
+            <file>file:/C:/xampp/htdocs/TCU/CE_Liceo_Paraiso_WEB/src/CELiceoParaisoApp/CELiceoParaisoBundle/Entity/Area.php</file>
+            <file>file:/C:/xampp/htdocs/TCU/CE_Liceo_Paraiso_WEB/src/CELiceoParaisoApp/CELiceoParaisoBundle/Entity/Departamento.php</file>
             <file>file:/C:/xampp/htdocs/TCU/CE_Liceo_Paraiso_WEB/src/CELiceoParaisoApp/CELiceoParaisoBundle/Resources/config/routing.yml</file>
+            <file>file:/C:/xampp/htdocs/TCU/CE_Liceo_Paraiso_WEB/src/CELiceoParaisoApp/CELiceoParaisoBundle/Controller/AdministratorController.php</file>
+            <file>file:/C:/xampp/htdocs/TCU/CE_Liceo_Paraiso_WEB/web/bundles/ce_liceo_paraiso_app/admin/css/paper-dashboard.css</file>
+            <file>file:/C:/xampp/htdocs/TCU/CE_Liceo_Paraiso_WEB/src/CELiceoParaisoApp/CELiceoParaisoBundle/Entity/Administrador.php</file>
         </group>
     </open-files>
 </project-private>

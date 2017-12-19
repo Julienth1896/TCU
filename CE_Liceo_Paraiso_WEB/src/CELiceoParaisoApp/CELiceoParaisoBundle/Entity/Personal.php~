@@ -1,0 +1,76 @@
+<?php
+
+namespace CELiceoParaisoApp\CELiceoParaisoBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Personal
+ *
+ * @ORM\Table(name="personal")
+ * @ORM\Entity
+ */
+class Personal
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="codigo", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $codigo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nombre", type="string", length=50, nullable=false)
+     */
+    private $nombre;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="apellidos", type="string", length=50, nullable=false)
+     */
+    private $apellidos;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="correo", type="string", length=50, nullable=true)
+     */
+    private $correo;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="Area", mappedBy="personal")
+     */
+    private $area;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="Comite", mappedBy="personal")
+     */
+    private $comite;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="Departamento", mappedBy="codigoPersonal")
+     */
+    private $codigoDepartamento;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->area = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->comite = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->codigoDepartamento = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+}

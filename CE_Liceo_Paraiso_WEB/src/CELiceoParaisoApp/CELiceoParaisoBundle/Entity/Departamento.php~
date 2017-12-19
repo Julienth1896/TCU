@@ -55,17 +55,17 @@ class Departamento
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="Docente", inversedBy="codigoDepartamento")
-     * @ORM\JoinTable(name="docente_departamento",
+     * @ORM\ManyToMany(targetEntity="Personal", inversedBy="codigoDepartamento")
+     * @ORM\JoinTable(name="personal_departamento",
      *   joinColumns={
      *     @ORM\JoinColumn(name="codigo_departamento", referencedColumnName="codigo")
      *   },
      *   inverseJoinColumns={
-     *     @ORM\JoinColumn(name="codigo_docente", referencedColumnName="codigo")
+     *     @ORM\JoinColumn(name="codigo_personal", referencedColumnName="codigo")
      *   }
      * )
      */
-    private $codigoDocente;
+    private $codigoPersonal;
 
     /**
      * Constructor
@@ -73,7 +73,7 @@ class Departamento
     public function __construct()
     {
         $this->area = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->codigoDocente = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->codigoPersonal = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
 }

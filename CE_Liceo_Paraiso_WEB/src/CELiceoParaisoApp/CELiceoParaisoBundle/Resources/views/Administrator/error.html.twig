@@ -1,0 +1,17 @@
+{% extends "CELiceoParaisoBundle::administration_view.html.twig" %}
+
+{% block title %} <h2>¡ERROR!</h2> {% endblock %}
+
+{% block content %} 
+    <div id="content">
+        <div class="row">
+            <div class="col-sm-12">
+                <blockquote>
+                    <img src="{{asset('bundles/ce_liceo_paraiso_app/img/error.png')}}">
+                    <h2><b>No se encuentra la página que buscas.</b></h2>
+                </blockquote>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

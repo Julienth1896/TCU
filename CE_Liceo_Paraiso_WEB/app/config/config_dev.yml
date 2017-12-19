@@ -28,4 +28,7 @@ assetic:
     use_controller: true
 
 #swiftmailer:
-#    delivery_address: me@example.com
+swiftmailer:
+    transport: gmail
+    username:  ce.liceo.paraiso@gmail.com
+    password:  paraiso.2016

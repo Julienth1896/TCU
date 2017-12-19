@@ -52,7 +52,7 @@ class Institucion
     /**
      * @var string
      *
-     * @ORM\Column(name="telefono", type="string", length=20, nullable=false)
+     * @ORM\Column(name="telefono", type="string", length=30, nullable=false)
      */
     private $telefono;
 

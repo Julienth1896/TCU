@@ -12,7 +12,6 @@ class __TwigTemplate_22e2a030a769418f3d0dc0227d0e9e3a6b32bab5b228d8c6531be8a56cb
         $this->blocks = array(
             'submenu' => array($this, 'block_submenu'),
             'content' => array($this, 'block_content'),
-            'images' => array($this, 'block_images'),
             'scripts' => array($this, 'block_scripts'),
         );
     }
@@ -38,13 +37,17 @@ class __TwigTemplate_22e2a030a769418f3d0dc0227d0e9e3a6b32bab5b228d8c6531be8a56cb
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/ce_liceo_paraiso_app/js/mapjs.js"), "html", null, true);
         echo "\"></script>
         <script async defer src=\"https://maps.googleapis.com/maps/api/js?key=AIzaSyDjY6bb7os43WpETqE-dSKsGkLF1wTzqYk&callback\"></script>
+        <script type=\"text/javascript\" src=\"";
+        // line 13
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/ce_liceo_paraiso_app/js/functions.js"), "html", null, true);
+        echo "\"></script>
     </head>
     <body onload=\"codeAddress();\" >
         <div class=\"jumbotron\">
             <div class=\"row\">
                 <div class=\"col-sm-2 text-center\">
                     <img src=\"";
-        // line 18
+        // line 19
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/ce_liceo_paraiso_app/img/CE_logo.png"), "html", null, true);
         echo "\" alt=\"\" width=\"200\" height=\"200\"/>
                 </div>
@@ -68,77 +71,56 @@ class __TwigTemplate_22e2a030a769418f3d0dc0227d0e9e3a6b32bab5b228d8c6531be8a56cb
                     <ul class=\"nav navbar-nav\">
                         <li class=\"active\">
                             <a href=\"";
-        // line 39
+        // line 40
         echo $this->env->getExtension('routing')->getPath("ce_liceo_paraiso_homepage");
         echo "\">
                                 <span class=\"glyphicon glyphicon-home\"></span> Inicio
                             </a>
                         </li>
                         <li>
-                            <a href=\"";
-        // line 44
-        echo $this->env->getExtension('routing')->getPath("ce_liceo_paraiso_vocational");
-        echo "\">
-                                <span class=\"glyphicon glyphicon-education\"></span> Área Vocacional
+                            <a href=\"\">
+                                <span class=\"glyphicon glyphicon-picture\"></span> Galería
                             </a>
                         </li>
                         <li>
                             <a href=\"";
-        // line 49
-        echo $this->env->getExtension('routing')->getPath("ce_liceo_paraiso_diurnal");
-        echo "\">
-                                <span class=\"glyphicon glyphicon-education\"></span> Área Diurna
-                            </a>
-                        </li>
-                        <li>
-                            <a href=\"";
-        // line 54
-        echo $this->env->getExtension('routing')->getPath("ce_liceo_paraiso_nocturnal");
-        echo "\">
-                                <span class=\"glyphicon glyphicon-education\"></span> Área Nocturna
-                            </a>
-                        </li>
-                        <li>
-                            <a href=\"";
-        // line 59
+        // line 50
         echo $this->env->getExtension('routing')->getPath("ce_liceo_paraiso_ubication");
         echo "\">
-                                <span class=\"glyphicon glyphicon-map-marker\"></span> Ubicación
+                                <span class=\"glyphicon glyphicon-map-marker\"></span> Ubucación
                             </a>
                         </li>
-                    </ul>
-                    <ul class=\"nav navbar-nav navbar-right\">
-                        <li><a href=\"";
-        // line 65
-        echo $this->env->getExtension('routing')->getPath("ce_liceo_paraiso_login");
-        echo "\">
-                                <span class=\"glyphicon glyphicon-log-in\"></span> Login</a>
-                        </li>
-                    </ul>
+                    </ul>          
                 </div>
             </div>
         </nav>
 
-        <div class=\"container-fluid text-center\">    
+        <div class=\"container-fluid\">    
             <div class=\"row content\">
-                <div class=\"col-sm-3 sidenav\">
+                <aside class=\"col-sm-2\">
+                    <br>
                     ";
-        // line 76
+        // line 63
         $this->displayBlock('submenu', $context, $blocks);
+        // line 64
+        echo "
+                    <div class=\"panel panel-primary hidden-xs\">
+                        <div class=\"panel-heading\">Enlaces de Interes</div>
+                        <div class=\"panel-body list-group\">
+                            <a href=\"http://e-colelp.blogspot.com/\" class=\"list-group-item\">Revista E-Cole</a>
+                            <a href=\"http://profe-conta-lp.blogspot.com/\" class=\"list-group-item\">Contabilidad</a>
+                            <a href=\"http://lp-turismo.blogspot.com/\" class=\"list-group-item\">Turismo</a>
+                            <a href=\"http://fisicaliceoparaiso.blogspot.com/\" class=\"list-group-item\">Física</a>
+                        </div>
+                    </div>
+                    <br>
+                </aside>
+                <div class=\"col-sm-10 text-left align-center\"> 
+                    ";
         // line 77
-        echo "                </div>
-                <div class=\"col-sm-7 text-left\"> 
-                    ";
-        // line 79
         $this->displayBlock('content', $context, $blocks);
-        // line 80
-        echo "                </div>
-                <div class=\"col-sm-3 sidenav\">
-                    ";
-        // line 82
-        $this->displayBlock('images', $context, $blocks);
-        // line 83
-        echo "                </div>
+        // line 78
+        echo "                </div>   
             </div>
         </div>
 
@@ -149,32 +131,28 @@ class __TwigTemplate_22e2a030a769418f3d0dc0227d0e9e3a6b32bab5b228d8c6531be8a56cb
 
     </body>
     ";
-        // line 93
+        // line 88
         $this->displayBlock('scripts', $context, $blocks);
-        // line 94
+        // line 89
         echo "</html>";
     }
 
-    // line 76
+    // line 63
     public function block_submenu($context, array $blocks = array())
     {
         echo " ";
     }
 
-    // line 79
+    // line 77
     public function block_content($context, array $blocks = array())
-    {
-    }
-
-    // line 82
-    public function block_images($context, array $blocks = array())
     {
         echo " ";
     }
 
-    // line 93
+    // line 88
     public function block_scripts($context, array $blocks = array())
     {
+        echo " ";
     }
 
     public function getTemplateName()
@@ -189,6 +167,6 @@ class __TwigTemplate_22e2a030a769418f3d0dc0227d0e9e3a6b32bab5b228d8c6531be8a56cb
 
     public function getDebugInfo()
     {
-        return array (  176 => 93,  170 => 82,  165 => 79,  159 => 76,  155 => 94,  153 => 93,  141 => 83,  139 => 82,  135 => 80,  133 => 79,  129 => 77,  127 => 76,  113 => 65,  104 => 59,  96 => 54,  88 => 49,  80 => 44,  72 => 39,  48 => 18,  38 => 11,  34 => 10,  23 => 1,);
+        return array (  153 => 88,  147 => 77,  141 => 63,  137 => 89,  135 => 88,  123 => 78,  121 => 77,  106 => 64,  104 => 63,  88 => 50,  75 => 40,  51 => 19,  42 => 13,  37 => 11,  33 => 10,  22 => 1,);
     }
 }

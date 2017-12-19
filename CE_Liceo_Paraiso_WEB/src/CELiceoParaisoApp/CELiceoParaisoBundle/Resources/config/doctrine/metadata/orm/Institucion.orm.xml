@@ -11,7 +11,7 @@
     <field name="ubicacion" type="string" column="ubicacion" length="1000" nullable="false"/>
     <field name="historia" type="string" column="historia" length="6000" nullable="false"/>
     <field name="encargados" type="string" column="encargados" length="600" nullable="false"/>
-    <field name="telefono" type="string" column="telefono" length="20" nullable="false"/>
+    <field name="telefono" type="string" column="telefono" length="30" nullable="false"/>
     <field name="descripcion" type="string" column="descripcion" length="3000" nullable="false"/>
     <field name="objetivos" type="string" column="objetivos" length="3000" nullable="false"/>
     <field name="mision" type="string" column="mision" length="3000" nullable="false"/>

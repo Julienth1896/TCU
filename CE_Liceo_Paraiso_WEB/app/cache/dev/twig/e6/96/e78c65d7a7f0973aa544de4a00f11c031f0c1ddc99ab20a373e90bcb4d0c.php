@@ -20,7 +20,7 @@ class __TwigTemplate_e696e78c65d7a7f0973aa544de4a00f11c031f0c1ddc99ab20a373e90bc
         $this->blocks = array(
             'submenu' => array($this, 'block_submenu'),
             'content' => array($this, 'block_content'),
-            'images' => array($this, 'block_images'),
+            'scripts' => array($this, 'block_scripts'),
         );
     }
 
@@ -38,11 +38,11 @@ class __TwigTemplate_e696e78c65d7a7f0973aa544de4a00f11c031f0c1ddc99ab20a373e90bc
     public function block_submenu($context, array $blocks = array())
     {
         // line 3
-        echo "    <p><a href=\"#\">Reseña</a></p>
-    <p><a href=\"#\">Departamentos</a></p>
-    <p><a href=\"#\">Servicios</a></p>
-    <p><a href=\"#\">Personal</a></p>
-    <p><a href=\"#\">Noticias</a></p>
+        echo "    <a href=\"#\" class=\"list-group-item\">Reseña</a>
+    <a href=\"#\" class=\"list-group-item\">Departamentos</a>
+    <a href=\"#\" class=\"list-group-item\">Servicios</a>
+    <a href=\"#\" class=\"list-group-item\">Personal</a>
+    <a href=\"#\" class=\"list-group-item\">Noticias</a>
 ";
     }
 
@@ -53,50 +53,22 @@ class __TwigTemplate_e696e78c65d7a7f0973aa544de4a00f11c031f0c1ddc99ab20a373e90bc
         echo "    <h1 id=\"title\">Área ";
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["area"]) ? $context["area"] : $this->getContext($context, "area")), "getNombre", array(), "method"), "html", null, true);
         echo "</h1><hr>
-    ";
-        // line 12
-        if (((isset($context["subinformation"]) ? $context["subinformation"] : $this->getContext($context, "subinformation")) == "description")) {
-            // line 13
-            echo "        <p>";
-            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["area"]) ? $context["area"] : $this->getContext($context, "area")), "getDescripcion", array(), "method"), "html", null, true);
-            echo "</p>
-    ";
-        }
-        // line 15
-        echo "    ";
-        if (((isset($context["subinformation"]) ? $context["subinformation"] : $this->getContext($context, "subinformation")) == "departaments")) {
-            // line 16
-            echo "        
-    ";
-        }
-        // line 18
-        echo "    ";
-        if (((isset($context["subinformation"]) ? $context["subinformation"] : $this->getContext($context, "subinformation")) == "services")) {
-            // line 19
-            echo "        
-    ";
-        }
-        // line 21
-        echo "    ";
-        if (((isset($context["subinformation"]) ? $context["subinformation"] : $this->getContext($context, "subinformation")) == "personal")) {
-            // line 22
-            echo "        
-    ";
-        }
-        // line 24
-        echo "    ";
-        if (((isset($context["subinformation"]) ? $context["subinformation"] : $this->getContext($context, "subinformation")) == "news")) {
-            // line 25
-            echo "        
-    ";
-        }
+    <div id=\"content\">
+        <blockquote><p class=\"text-justify\">";
+        // line 13
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["area"]) ? $context["area"] : $this->getContext($context, "area")), "getDescripcion", array(), "method"), "html", null, true);
+        echo "</p></blockquote>
+    </div>
+";
     }
 
-    // line 29
-    public function block_images($context, array $blocks = array())
+    // line 17
+    public function block_scripts($context, array $blocks = array())
     {
-        // line 30
-        echo "    <h1>IMÁGENES</h1>
+        echo " 
+    <script type=\"text/javascript\">
+        
+    </script>
 ";
     }
 
@@ -112,6 +84,6 @@ class __TwigTemplate_e696e78c65d7a7f0973aa544de4a00f11c031f0c1ddc99ab20a373e90bc
 
     public function getDebugInfo()
     {
-        return array (  99 => 30,  96 => 29,  90 => 25,  87 => 24,  83 => 22,  80 => 21,  76 => 19,  73 => 18,  69 => 16,  66 => 15,  60 => 13,  58 => 12,  53 => 11,  50 => 10,  41 => 3,  38 => 2,  11 => 1,);
+        return array (  66 => 17,  59 => 13,  53 => 11,  50 => 10,  41 => 3,  38 => 2,  11 => 1,);
     }
 }

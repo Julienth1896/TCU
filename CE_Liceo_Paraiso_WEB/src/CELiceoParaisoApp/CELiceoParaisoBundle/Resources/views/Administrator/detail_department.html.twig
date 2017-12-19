@@ -1,0 +1,241 @@
+{% extends "CELiceoParaisoBundle::administration_view.html.twig" %}
+
+{% block menu %}
+    <li>
+        <a href="{{ path('ce_liceo_paraiso_institution_admin')}}">
+            <i class="ti-panel"></i>
+            <p>Institución</p>
+        </a>
+    </li>
+    {% if area.getCodigo() == 1 %}
+        <li class="active">
+            <a href="{{ path('ce_liceo_paraiso_area_nocturn') }}">
+                <i class="ti-view-list-alt"></i>
+                <p>Área Nocturna</p>
+            </a>
+        </li>
+        <li>
+            <a href="{{ path('ce_liceo_paraiso_plan_national') }}">
+                <i class="ti-view-list-alt"></i>
+                <p>Plan Nacional</p>
+            </a>
+        </li>
+    {% else %}
+        <li>
+            <a href="{{ path('ce_liceo_paraiso_area_nocturn') }}">
+                <i class="ti-view-list-alt"></i>
+                <p>Área Nocturna</p>
+            </a>
+        </li>
+        <li class="active">
+            <a href="{{ path('ce_liceo_paraiso_plan_national') }}">
+                <i class="ti-view-list-alt"></i>
+                <p>Plan Nacional</p>
+            </a>
+        </li>
+    {% endif %}
+    <li>
+        <a href="#">
+            <i class="ti-view-list-alt"></i>
+            <p>Personal</p>
+        </a>
+    </li>
+    <li>
+        <a href="#">
+            <i class="ti-view-list-alt"></i>
+            <p>Departamentos</p>
+        </a>
+    </li>
+    <li>
+        <a href="#">
+            <i class="ti-view-list-alt"></i>
+            <p>Comités</p>
+        </a>
+    </li>
+    <li>
+        <a href="#">
+            <i class="ti-view-list-alt"></i>
+            <p>Clubs</p>
+        </a>
+    </li>
+    <li>
+        <a href="#">
+            <i class="ti-view-list-alt"></i>
+            <p>Servicios</p>
+        </a>
+    </li>
+{% endblock %}
+{% block title %} {{title}} {% endblock %}
+
+{% block content %}  
+    <div class="nav-tabs-navigation">
+        <div class="nav-tabs-wrapper">
+            <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
+                {% if area.getNombre() == 'Área Nocturna' %}
+                    <li><a href="{{path('ce_liceo_paraiso_area_nocturn')}}">Información General</a></li>
+                    {% else %}
+                    <li><a href="{{path('ce_liceo_paraiso_plan_national')}}">Información General</a></li>
+                    {% endif %}
+                <li class="active"><a href="{{ path('ce_liceo_paraiso_departaments',{'area':area.getCodigo()})}}" data-toggle="tab">Departamentos</a></li>
+                <li><a href="{{ path('ce_liceo_paraiso_show_personal',{'area':area.getCodigo()})}}">Personal</a></li>
+                <li><a href="#" data-toggle="tab">Servicios</a></li>
+                <li><a href="#" data-toggle="tab">Galería</a></li>
+            </ul>
+        </div>
+    </div>
+    {% if alert is defined %}
+        {% if alert == 'success' %}
+            <div class="alert alert-success text-center" id="alert">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <strong>
+                    <img src="{{asset('bundles/ce_liceo_paraiso_app/img/img.png')}}"/> 
+                    Informaci&oacute;n actualizada
+                </strong>
+            </div>
+        {% endif %}
+        {% if alert != 'success' %}
+            <div class="alert alert-warning text-center" id="alert">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <strong>
+                    <img src="{{asset('bundles/ce_liceo_paraiso_app/img/cancel.png')}}"/> 
+                    {{alert}}
+                </strong>
+            </div>
+        {% endif %}
+    {% endif %}
+    <div id="my-tab-content" class="tab-content text-center">
+        <div class="tab-pane active">
+            <br>
+            <div class="row" id="divShowDetailDepartm">
+                <div class="col-sm-12 text-right">
+                    <a class="btn btn-round btn-fill btn-primary" href="{{ path('ce_liceo_paraiso_departaments',{'area':area.getCodigo()})}}">Ver Departamentos</a>
+                </div>
+                <form action="#" method="post" class="form-horizontal">
+                    <div class="card">
+                        <div class="header">
+                            <h4 class="title text-center">Departamento {{department.getNombre()}}</h4>
+                            <hr>
+                        </div>
+                        <div class="form-group">
+                            <label for="codDept" class="control-label col-sm-4">C&oacute;digo:</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control " id="codDept" 
+                                       name="codDept" value="{{department.getCodigo()}}" readonly />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="nameDept" class="control-label col-sm-4">Nombre:</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control " id="nameDept" 
+                                       name="nameDept" value="{{department.getNombre()}}" readonly />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="descDept" class="control-label col-sm-4">Descripción:</label>
+                            <div class="col-sm-4">
+                                <textarea type="text" class="form-control " id="descDept" 
+                                          name="descDept"rows="4">{{department.getDescripcion()}}</textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="codAdmDept" class="control-label col-sm-4">Administrador:</label>
+                            <div class="col-sm-1">
+                                <input type="text" class="form-control " id="codAdmDept" 
+                                       name="codAdmDept" value="{{department.getAdministrador().getCodigo()}}" required readonly/>
+                            </div>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control " id="admDept" 
+                                       name="admDept" value="{{department.getAdministrador().getCodigoPersonal.getNombre()}} {{department.getAdministrador().getCodigoPersonal().getApellidos()}}" required readonly/>
+                            </div>
+                            <div class="col-sm-2"><a class="btn btn-round btn-fill btn-primary" onclick="">Cambiar Administrador</a></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="personalDept" class="control-label col-sm-4">Personal:</label>
+                            <div class="col-sm-4">
+                                {% for personal in department.getCodigoPersonal() %}
+                                    <p>
+                                        {{personal.getNombre()}} {{personal.getApellidos}}
+                                    </p>
+                                    <legend></legend>
+                                {%endfor%}
+                            </div>
+                            <div class="col-sm-2"><a class="btn btn-round btn-fill btn-primary" onclick="showPersonalDept();">Administrar</a></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="filesDept" class="control-label col-sm-4">Archivos:</label>
+                            <div class="col-sm-8">
+                                <a name="filesDept" class="btn btn-round btn-fill btn-primary" onclick="">Ver Archivos</a>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="form-group text-center">
+                            <a role="button" class="btn btn-round btn-fill btn-success" onclick="">Actualizar</a>
+                        </div>
+                        <br>
+                    </div>
+                </form>
+            </div>
+            <div class="row" id="divTeachersDept">
+                <div>
+                    <div class="col-sm-12 text-right">
+                        <a class="btn btn-round btn-fill btn-primary" href="#">Agregar Personal</a>
+                    </div>
+                    <br>
+                    <div class="card">
+                        <div class="header">
+                            <h4 class="title">Lista del Personal</h4>
+                            <p class="category">Departamento {{department.getNombre()}}</p>
+                            <hr>
+                        </div>
+                        <div class="content table-responsive table-full-width">
+                            <table class="table table-striped table-hover">
+                                <thead>
+                                <th style="width: 10px"></th>
+                                <th style="width: 800px">Nombre</th>
+                                <th style="width: 800px">Apellidos</th>
+                                <th style="width: 800px">Correo</th>
+                                <th style="width: 1500px"></th>
+                                </thead>
+                                <tbody>
+                                    {% for personal in department.getCodigoPersonal() %}
+                                        <tr>
+                                            <th style="width: 10px"></th>
+                                            <th style="width: 800px">{{personal.getNombre()}}</th>
+                                            <th style="width: 800px">{{personal.getApellidos()}}</th>
+                                            <th style="width: 800px">{{personal.getCorreo()}}</th>
+                                            <th style="width: 1500px">
+                                                <a href="#"><span class="glyphicon glyphicon-trash"></span></a>
+                                            </th>
+                                        </tr>
+                                    <legend></legend>
+                                {%endfor%}
+                                </tbody>
+                            </table>
+                        </div> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block modals %}
+{% endblock %}
+{% block scripts %} 
+    <script type="text/javascript">
+        //DETALLE DEPARTAMENTO
+        document.getElementById('divShowDetailDepartm').style.display = 'block';
+        document.getElementById('divTeachersDept').style.display = 'none';
+
+        function showDetailDepartment() {
+            //DETALLE DEPARTAMENTO
+            document.getElementById('divShowDetailDepartm').style.display = 'block';
+            document.getElementById('divTeachersDept').style.display = 'none';
+        }
+
+        function showPersonalDept() {
+            //DETALLE DEPARTAMENTO
+            document.getElementById('divShowDetailDepartm').style.display = 'none';
+            document.getElementById('divTeachersDept').style.display = 'block';
+        }
+    </script>
+{% endblock %}

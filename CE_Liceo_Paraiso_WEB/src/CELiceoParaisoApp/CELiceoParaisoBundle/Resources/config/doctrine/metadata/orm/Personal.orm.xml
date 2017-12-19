@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Personal" table="personal">
+    <id name="codigo" type="integer" column="codigo">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="nombre" type="string" column="nombre" length="50" nullable="false"/>
+    <field name="apellidos" type="string" column="apellidos" length="50" nullable="false"/>
+    <field name="correo" type="string" column="correo" length="50" nullable="true"/>
+    <many-to-many field="codigoDepartamento" target-entity="Departamento" mapped-by="codigoPersonal"/>
+    <many-to-many field="comite" target-entity="Comite" mapped-by="personal"/>
+    <many-to-many field="area" target-entity="Area" mapped-by="personal"/>
+  </entity>
+</doctrine-mapping>

@@ -1,0 +1,316 @@
+{% extends "CELiceoParaisoBundle::administration_view.html.twig" %}
+
+{% block menu %}
+    <li>
+        <a href="{{ path('ce_liceo_paraiso_institution_admin')}}">
+            <i class="ti-panel"></i>
+            <p>Institución</p>
+        </a>
+    </li>
+    {% if area.getCodigo() == 1 %}
+        <li class="active">
+            <a href="{{ path('ce_liceo_paraiso_area_nocturn') }}">
+                <i class="ti-view-list-alt"></i>
+                <p>Área Nocturna</p>
+            </a>
+        </li>
+        <li>
+            <a href="{{ path('ce_liceo_paraiso_plan_national') }}">
+                <i class="ti-view-list-alt"></i>
+                <p>Plan Nacional</p>
+            </a>
+        </li>
+    {% else %}
+        <li>
+            <a href="{{ path('ce_liceo_paraiso_area_nocturn') }}">
+                <i class="ti-view-list-alt"></i>
+                <p>Área Nocturna</p>
+            </a>
+        </li>
+        <li class="active">
+            <a href="{{ path('ce_liceo_paraiso_plan_national') }}">
+                <i class="ti-view-list-alt"></i>
+                <p>Plan Nacional</p>
+            </a>
+        </li>
+    {% endif %}
+    <li>
+        <a href="#">
+            <i class="ti-view-list-alt"></i>
+            <p>Personal</p>
+        </a>
+    </li>
+    <li>
+        <a href="#">
+            <i class="ti-view-list-alt"></i>
+            <p>Departamentos</p>
+        </a>
+    </li>
+    <li>
+        <a href="#">
+            <i class="ti-view-list-alt"></i>
+            <p>Comités</p>
+        </a>
+    </li>
+    <li>
+        <a href="#">
+            <i class="ti-view-list-alt"></i>
+            <p>Clubs</p>
+        </a>
+    </li>
+    <li>
+        <a href="#">
+            <i class="ti-view-list-alt"></i>
+            <p>Servicios</p>
+        </a>
+    </li>
+{% endblock %}
+{% block title %} {{title}} {% endblock %}
+
+{% block content %}  
+    <div class="nav-tabs-navigation">
+        <div class="nav-tabs-wrapper">
+            <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
+                {% if area.getNombre() == 'Área Nocturna' %}
+                    <li><a href="{{path('ce_liceo_paraiso_area_nocturn')}}">Información General</a></li>
+                    {% else %}
+                    <li><a href="{{path('ce_liceo_paraiso_plan_national')}}">Información General</a></li>
+                    {% endif %}
+                <li><a href="{{ path('ce_liceo_paraiso_departaments',{'area':area.getCodigo()})}}">Departamentos</a></li>
+                <li class="active"><a href="#" data-toggle="tab">Personal</a></li>
+                <li><a href="#" data-toggle="tab">Servicios</a></li>
+                <li><a href="#" data-toggle="tab">Galería</a></li>
+            </ul>
+        </div>
+    </div>
+    {% if alert is defined %}
+        {% if alert == 'success' %}
+            <div class="alert alert-success text-center" id="alert">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <strong>
+                    <img src="{{asset('bundles/ce_liceo_paraiso_app/img/img.png')}}"/> 
+                    Informaci&oacute;n actualizada
+                </strong>
+            </div>
+        {% endif %}
+        {% if alert != 'success' %}
+            <div class="alert alert-warning text-center" id="alert">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <strong>
+                    <img src="{{asset('bundles/ce_liceo_paraiso_app/img/cancel.png')}}"/> 
+                    {{alert}}
+                </strong>
+            </div>
+        {% endif %}
+    {% endif %}
+    <div id="my-tab-content" class="tab-content text-center">
+        <div class="tab-pane active">
+            <legend></legend>
+            {% if administrator is defined %} 
+                <div class="col-sm-12" id="divButton" style="text-align: right;">
+                    <a class="btn btn-round btn-fill btn-primary" data-target="#modal2" data-toggle="modal">Agregar Personal</a>
+                </div>
+                <br>
+            {%endif%}
+            <hr>
+            <div id="divTable">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="header">
+                                <h4 class="title"> {{ area.getNombre() }} - Personal Activo</h4>
+                                <p class="category">Incluye los docentes, administradores y otros trabajadores de la institución</p>
+                            </div>
+                            <div class="content table-responsive table-full-width">
+                                <table class="table table-striped table-hover">
+                                    <thead>
+                                    <th style="width: 30px"></th>
+                                    <th style="width: 800px">Nombre</th>
+                                    <th style="width: 800px">Apellidos</th>
+                                    <th style="width: 1500px"></th>
+                                    </thead>
+                                    <tbody id="tbodyTeachers">
+                                        {% for teacher in area.getPersonal() %}
+                                            <tr style="text-align: left;">
+                                                <td style="width: 5px">
+                                                    <span id="codTeacher" name="codTeacher">{{teacher.getCodigo()}}</span>
+                                                </td>
+                                                <td style="width: 800px">{{teacher.getNombre()}}</td>
+                                                <td style="width: 800px">{{teacher.getApellidos()}}</td>
+                                                <td style="width: 1500px">
+                                                    <button type="button" onclick="showDetailPersonal('{{teacher.getCodigo()}}', '{{teacher.getNombre()}}', '{{teacher.getApellidos()}}', '{{teacher.getCorreo()}}');" class="btn btn-primary">Ver Detalle</button>
+                                                    <a role="button" href="{{ path('ce_liceo_paraiso_delete_personal_area',{'area':area.getCodigo(),'codTeacher':teacher.getCodigo()}) }}" class="btn btn-danger">Eliminar</a>
+                                                </td>
+                                            </tr>
+                                        {%endfor%}
+                                    </tbody>
+                                </table>
+                            </div> 
+                        </div> 
+                    </div> 
+                </div> 
+            </div>
+            <div class="row" id="divDetailPersonal">
+                <div class="col-sm-6">
+                    <form action="{{ path('ce_liceo_paraiso_update_personal', {'code':area.getCodigo()}) }}" method="post" class="form-horizontal">
+                        <div class="card">
+                            <div class="header">
+                                <h4 class="title text-center">Detalle del Personal</h4>
+                                <hr>
+                            </div>
+                            <div class="form-group">
+                                <label for="codeTeacher" class="control-label col-sm-4">C&oacute;digo:
+                                </label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control " id="codeTeacher" 
+                                           name="codeTeacher" readonly />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="nameTeacher" class="control-label col-sm-4">Nombre:
+                                </label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control " id="nameTeacher" 
+                                           name="nameTeacher" readonly />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastNameTeacher" class="control-label col-sm-4">Apellidos:
+                                </label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control " id="lastNameTeacher" 
+                                           name="lastNameTeacher" readonly />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="emailTeacher" class="control-label col-sm-4">Correo:
+                                </label>
+                                <div class="col-sm-6">
+                                    <input type="email" class="form-control " id="emailTeacher" 
+                                           name="emailTeacher" required/>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="form-group text-center">
+                                <button type="submit" class="btn btn-round btn-fill btn-success">Guardar Personal</button>
+                                <button type="button" class="btn btn-round btn-fill btn-danger" onclick="showPersonal();">Lista de Personal</button>
+                            </div>
+                            <br>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-sm-6">
+                    <div class="header">
+                        <h4 class="title">Departamentos asociados al Personal</h4>
+                        <p class="category"></p>
+                    </div>
+                    <div class="content table-responsive table-full-width">
+                        <table class="table table-striped table-hover">
+                            <thead>
+                            <th></th>
+                            <th>Área</th>
+                            <th>Departamento</th>
+                            <th>Cómite</th>
+                            </thead>
+                            <tbody>
+                                <tr style="text-align: center;">
+                                    <td id="areasPersonal"></td>
+                                    <td id="departmentsPersonal"></td>
+                                    <td id="comitesPersonal"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div> 
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block modals %}
+    <div class="modal fade" id="modal2" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header alert alert-info">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">
+                        <strong>Nuevo Personal</strong>
+                    </h4>
+                </div>
+                <form action="{{ path('ce_liceo_paraiso_new_personal', {'area':area.getCodigo()}) }}" method="post" class="form-horizontal">
+                    <div class="modal-body">
+                        <label class="control-label col-sm-3" for="name">Nombre:</label>
+                        <input type="text" class="form-control" id="name" name="name" required/>
+                        <label class="control-label col-sm-3" for="lastname">Apellidos:</label>
+                        <input type="text" class="form-control" id="lastname" name="lastname" required/>
+                        <label class="control-label col-sm-3" for="email">Correo:</label>
+                        <input type="email" class="form-control" id="email" name="email" required/>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    <script text="text/javascript">
+        //DETALLE PERSONAL
+        document.getElementById('divDetailPersonal').style.display = "none";
+        document.getElementById('tbodyTeachers').innerHTML = "";
+        
+        function showDetailPersonal(code, name, lastname, email) {
+            document.getElementById('areasPersonal').innerHTML = "";
+            document.getElementById('departmentsPersonal').innerHTML = "";
+            document.getElementById('comitesPersonal').innerHTML = "";
+            document.getElementById('divTable').style.display = "none";
+            
+            document.getElementById('codeTeacher').value = code;
+            document.getElementById('nameTeacher').value = name;
+            document.getElementById('lastNameTeacher').value = lastname;
+            document.getElementById('emailTeacher').value = email;
+            var isAdmArea = false;        
+            {% for personal in area.getPersonal() %}
+                if ({{ personal.getCodigo() }} == code) {
+                    {% for areaT in areas %}
+                        if ({{ areaT.getAdministrador().getCodigoPersonal().getCodigo() }} == code){
+                            document.getElementById('areasPersonal').innerHTML += {{ areaT.getNombre() }}+ " (Administrador)<br>";
+                            isAdmArea = true;
+                        }
+                    {% endfor %}
+                    if (!isAdmArea){
+                        document.getElementById('areasPersonal').innerHTML += "Sin administracion";
+                    }
+                    isAdmArea = false;            
+                    {% if personal.getCodigoDepartamento()|length > 0%}
+                        {% for dpt in personal.getCodigoDepartamento() %} 
+                            document.getElementById('departmentsPersonal').innerHTML += {{ dpt.getNombre() }}+ " <br>";                
+                        {% endfor %}
+                    {% else %}
+                            document.getElementById('departmentsPersonal').innerHTML += "Sin administracion";            
+                    {% endif %}
+
+                    {% if personal.getComite()|length > 0%}
+                        {% for com in personal.getComite() %} 
+                            document.getElementById('comitesPersonal').innerHTML += {{ com.getNombre() }}+ " <br>"; 
+                        {% endfor %}
+                    {% else %}
+                        document.getElementById('comitesPersonal').innerHTML += "Sin administracion";            
+                    {% endif %}
+                }
+            {% endfor %}
+
+            //DETALLE PERSONAL
+            document.getElementById('divDetailPersonal').style.display = "block";
+        }
+
+        function showPersonal(){
+            //DETALLE PERSONAL
+            document.getElementById('divDetailPersonal').style.display = "none";
+            document.getElementById('divTable').style.display = "block";
+        }
+    </script>
+{% endblock %}
